@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Bridal Edit | UDAY JEWELLERS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#735c00",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#574500",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "surface-bright": "#fbf9f8",
+                        "surface-dim": "#dbd9d9",
+                        "on-primary-container": "#554300",
+                        "surface-variant": "#e4e2e2",
+                        "surface-container": "#efeded",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1c19",
+                        "tertiary-container": "#b4b3af",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-surface-variant": "#4d4635",
+                        "secondary": "#5f5e5e",
+                        "tertiary": "#5e5e5b",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f5f3f3",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-high": "#eae8e7",
+                        "on-background": "#1b1c1c",
+                        "outline": "#7f7663",
+                        "on-tertiary-fixed-variant": "#474744",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-primary": "#e9c349",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#ffe088",
+                        "outline-variant": "#d0c5af",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fbf9f8",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-container": "#656464",
+                        "primary": "#735c00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#e4e2dd",
+                        "primary-container": "#d4af37",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface": "#fbf9f8",
+                        "on-tertiary-container": "#454542",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e2",
+                        "inverse-surface": "#303030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "button": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "button": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .whisper-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+        }
+        .product-card:hover .card-border {
+            opacity: 1;
+        }
+        .line-expand {
+            position: relative;
+        }
+        .line-expand::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: #d4af37;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .line-expand:hover::after {
+            width: 100%;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #fbf9f8;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d0c5af;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary/20">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 docked full-width top-0 sticky z-50 shadow-sm">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="flex items-center gap-6">
+<button class="scale-100 active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-headline-md text-headline-md tracking-widest text-on-surface uppercase">UDAY JEWELLERS</h1>
+</div>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-primary border-b border-primary py-1" href="#">Bridal Collections</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Bespoke Design</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Store Locator</a>
+</div>
+<button class="scale-100 active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[530px] flex items-center justify-center overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-80" data-alt="A high-end editorial photograph of a stunning bride wearing an intricate diamond and gold necklace set. The lighting is soft and ethereal, capturing the delicate shimmer of the jewelry against a cream-toned minimalist background. The aesthetic is sophisticated and luxurious, emphasizing the heritage and craftsmanship of the bridal piece. The overall mood is one of quiet luxury and timeless elegance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiFjAJBrhsKX3RInaSC-W5Sm2udrzNheMI0qIdAbs6CvHrLgjKJpLTRHoSYy75mn-_SUTnYJjrs60c4INhKUKN0sUJeA4aiSUj6OV5skE8FfXJtl0rV1fwKlv3Noe-zAn2XKGohYrWj_2RNaAwl64eDculPhy8NLnYiAg0eV2PXZIZ3TPzr2C4wLuYPrToLF7hIcIrl4tQPUr0G3E_0seW5ZElJdfBP1mx6ymzjYMZs4wclIQBMjtoE4GvmQcoGs4MKOl1kyK2Bzl9')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface/40"></div>
+</div>
+<div class="relative z-10 text-center px-6">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.3em] block mb-4">ESTABLISHED 1984</span>
+<h2 class="font-display-lg text-display-lg md:text-display-lg text-on-surface mb-6 italic">The Bridal Edit</h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto text-on-surface-variant">
+                    Curated masterpieces for the modern bride, blending ancestral gold heritage with contemporary diamond artistry.
+                </p>
+</div>
+</section>
+<!-- Collections & Filters -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<!-- Filter Header -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-outline-variant/30 pb-8 gap-8">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Refine Your Selection</h3>
+<p class="font-body-md text-on-surface-variant">Explore 24 unique bridal masterpieces</p>
+</div>
+<div class="flex flex-wrap gap-12">
+<div class="group relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">GOLD TYPE</label>
+<select class="bg-transparent border-none p-0 pr-8 font-body-md focus:ring-0 cursor-pointer appearance-none">
+<option>22KT Yellow Gold</option>
+<option>18KT Rose Gold</option>
+<option>Platinum Plated</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 bottom-1 text-sm pointer-events-none">expand_more</span>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-on-surface transition-all group-focus-within:h-[2px] group-focus-within:bg-primary"></div>
+</div>
+<div class="group relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">DIAMOND CLARITY</label>
+<select class="bg-transparent border-none p-0 pr-8 font-body-md focus:ring-0 cursor-pointer appearance-none">
+<option>VVS1 - Flawless</option>
+<option>VS - Exceptional</option>
+<option>Natural Uncut</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 bottom-1 text-sm pointer-events-none">expand_more</span>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-on-surface transition-all group-focus-within:h-[2px] group-focus-within:bg-primary"></div>
+</div>
+<div class="group relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">CATEGORY</label>
+<select class="bg-transparent border-none p-0 pr-8 font-body-md focus:ring-0 cursor-pointer appearance-none">
+<option>All Collections</option>
+<option>Grand Necklaces</option>
+<option>Polki Bangles</option>
+<option>Diamond Tiaras</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 bottom-1 text-sm pointer-events-none">expand_more</span>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-on-surface transition-all group-focus-within:h-[2px] group-focus-within:bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-gutter">
+<!-- Product 1 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A grand bridal necklace set made of 22KT yellow gold with intricate filigree work and suspended emerald drops. The jewelry is presented on a minimalist off-white velvet bust, illuminated by soft gallery-style spotlighting that highlights the detailed craftsmanship and the deep green of the gemstones. The setting is clean and high-end, evoking a sense of heritage and luxury." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlIjkwU4f3boXbI4PSsCI_RbqkNSf0DTySQRCg8ioyvykAf-TL72fR50mcQu7b7TdShT1aj7JbpfuiQRP6Z-a4-WPvl9WQNO4n2XhcES90v3E-8cSDU0irtQaZ5w-ikldvI1Ql1gsIUCQoayU3W0_kUIT70zcSSxQCQyDQoyVgC2VnyqfGhM85_e5f7sMrNJIbXWwwTKbuz-LSmnx9r0PVk03oBTaFQ8OlP1qOvKvaLLdgAxiCsa4E6HcL1WooRnWZvfc7Xsw4KN5S')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">HERITAGE COLLECTION</span>
+<h4 class="font-headline-sm text-headline-sm">The Rajwadi Grand Set</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">22KT Gold &amp; Panna Emeralds</p>
+<p class="font-label-caps text-on-surface">$12,450</p>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card group cursor-pointer lg:mt-24">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Pair of diamond bridal earrings featuring GIA certified VVS1 diamonds set in 18KT rose gold. The earrings are shot in extreme close-up against a soft, textured cream background. The lighting is crisp, making the diamonds sparkle brilliantly with high contrast and clarity. The aesthetic is modern, elegant, and exceptionally luxurious, reflecting the 'Quiet Luxury' philosophy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMtNe7ummg22wvE1faaF414pRBlCtjymcPFLWN1Nwjg-hym6AwL8r5CcOLOobQ2MLYEfJYQhQ_aalPDFn1Ownb85-4-5MbLyqp_dN3Aad52AxZUweD_rUIKKbsy6SRnPKf3oh59ggJTWyLfRvUQnYrqqArrKNAOXxxnvq_AFInQOer4dhb112hiqMqBLSbLQ6t6Q-YOzcR8w8CksqQ1M1zuJxAEOT6yV3ND4RLhKLBl_su-ZSsvnFE55pP894Nmorcgpd6D9B3QjDW')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">DIAMOND GALLERY</span>
+<h4 class="font-headline-sm text-headline-sm">Celestial Droplets</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">VVS1 Rose Gold Drops</p>
+<p class="font-label-caps text-on-surface">$5,800</p>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Stack of four intricate bridal bangles made of pure gold with Polki diamond detailing and red enamel work. The bangles are arranged artistically on a flat surface with subtle shadows and high-key lighting. The background is a warm, light grey stone texture. The mood is refined and culturally rich, emphasizing the artisanal precision of the jeweler." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYHRtFkhg3RdkI0DN1L7TeYQgHpDR1uf-OaIYk_jY2e-J-bPTeoWkV6y815q65k0VTt5HSdHYgzhcq8lojWEvniiUH1ETmdbhFGYEw15sxOOFR8LgNYlcEOTafBRPdf-caVe5jvYFjzT-APsp-CiL-0W91_cM6Xm6nm6JBE5ivJRgMSSHDbnnkYCgAUZMnxOER4hagTJscBnpDQ5U9WgV99SFWWLr4EBUPz2Eh-a0mArqK9skwFmvI-3AZqPaIfs6DabDVGuudnLU7')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">GOLD HERITAGE</span>
+<h4 class="font-headline-sm text-headline-sm">Gulabi Enamel Kadas</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">Polki &amp; Meenakari Work</p>
+<p class="font-label-caps text-on-surface">$8,900</p>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A delicate bridal choker necklace made of white gold and pavé diamonds, featuring a central pear-cut sapphire. The photography is minimalist, with the choker lying on a smooth, reflective surface that creates a mirror-like effect. The palette is dominated by cool whites and deep blues, creating a serene and sophisticated atmosphere of high-end jewelry design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYcFLPTSN6aRMMcqS49Plge55LmKg-bz8E6L2Wlp3iKHcrjXmHsWvtT0oZoCBlpQYSBlPTQFYWGCVQX7URKkw76Ek2vKurzmhaBlxzudbF70G1bIfrlnqz55veqUKiA9aOBaJaAOaSgKSZnLblQywz5A2rfnICCu4tILH_tdBKVLB7f6GTysVlLvPQNBihG2z-sZyBsDiMUV-ip8cABQZLJ0ZtQkUNmYP98qZ9yUJ9CG3pEq4wQhHndC7bzTgYUZzknwKgAydNd68y')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">MODERN BRIDE</span>
+<h4 class="font-headline-sm text-headline-sm">Azure Choker</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">18KT White Gold &amp; Sapphire</p>
+<p class="font-label-caps text-on-surface">$15,200</p>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="product-card group cursor-pointer lg:mt-24">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="An ornate mathapatti (bridal headgear) in 22KT gold featuring pearls and intricate kundan work. The accessory is placed against a dark velvet background to emphasize the gold's luster and the pearls' soft glow. The lighting is dramatic and focused, evoking a sense of ancient tradition and royal elegance in a modern editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAT_KJze6Nv6mqyJC3c2sTRZiOoyksBgB5JQBHQo1sXwtn-PuHqagfoboxGnb74xB3416aVrkcqTCRWesQKouTjv41kN546OsrQRj1cM2wKLPAG5lQ8gnuZ7FHDk8yILfizLvfx_pZueRT7E5P9kEY4Y9KxksyMbI0O-PCCZ37gwugxc3zRGdrrfCFWNoYdXRJ8cDrA5rRhOMtrjldV8fsaOoiljs-217qXd_1f9LaNNerENY3lJBVb4DIwxDdtBW2g-Wolmzi2R1Nk')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">BRIDAL ACCESSORIES</span>
+<h4 class="font-headline-sm text-headline-sm">Pearl Mathapatti</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">Kundan &amp; Basra Pearls</p>
+<p class="font-label-caps text-on-surface">$4,500</p>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="product-card group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden p-8 border border-transparent transition-colors duration-500 group-hover:border-primary/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Bridal ring set featuring a large cushion-cut diamond solitaire and a matching pavé band in platinum. The rings are presented on a piece of raw white marble, illuminated by bright, diffused morning light. The composition is clean and minimalist, focusing on the clarity of the diamond and the precision of the setting. The mood is pure, luxurious, and romantic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaRr52P3hJTdUOmxYsuZnQHk8sjm1A79CTfZKUzWzWb-zmgGP4HF27X5ISurZ-ecfW59MwkKVJycKK0-qOM-Q3lynXY9aJFiVTwxI5rNOSsXqnPzNVoGKNx9w4qRWJ29T7kqWY2C4RcRCOW7kJp5eiLPeWZxtx3fHT1tgm_Iky_yXt4UvUaRTK6sNzm2fFOcUv_P8jrtpyCD08YPPVc6CDt3xKR2aYpBkXC2fahU63tlrdaCkRKOqPobTjWOVmoTkid5HmQPzbnM6p')">
+</div>
+<div class="absolute top-6 right-6">
+<button class="bg-surface/80 backdrop-blur p-2 rounded-full hover:bg-primary hover:text-surface transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-2 px-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">THE FOREVER RING</span>
+<h4 class="font-headline-sm text-headline-sm">Empire Solitaire</h4>
+<div class="flex justify-between items-center pt-2">
+<p class="font-body-md text-on-surface-variant italic">Platinum &amp; 3ct Cushion Cut</p>
+<p class="font-label-caps text-on-surface">$22,000</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-24 flex justify-center">
+<button class="group px-12 py-4 bg-on-surface text-surface font-button text-button hover:bg-surface hover:text-on-surface border border-on-surface transition-all duration-300">
+<span class="line-expand">VIEW ALL PIECES</span>
+</button>
+</div>
+</section>
+<!-- Bridal Concierge Section -->
+<section class="bg-surface-container-high py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-6 space-y-8 order-2 lg:order-1">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.3em]">BESPOKE EXPERIENCE</span>
+<h2 class="font-display-lg text-display-lg text-on-surface italic">Bridal Concierge</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Our dedicated bridal specialists offer private, personalized consultations to help you curate your wedding trousseau. From customizing heritage pieces to selecting the perfect diamond clarity for your light, we are with you at every step.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">auto_awesome</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface">BESPOKE DESIGN</h4>
+<p class="font-body-md text-on-surface-variant">Transform your vision into a physical masterpiece with our master artisans.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">diamond</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface">GEM SELECTION</h4>
+<p class="font-body-md text-on-surface-variant">Access our exclusive gallery of conflict-free, GIA-certified diamonds and rare stones.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface">PRIVATE VIEWING</h4>
+<p class="font-body-md text-on-surface-variant">Book a private suite at our flagship boutique for an uninterrupted experience.</p>
+</div>
+</div>
+</div>
+<div class="pt-8">
+<button class="px-12 py-4 border border-on-surface font-button text-button hover:bg-on-surface hover:text-surface transition-all duration-300">
+<span class="line-expand">SCHEDULE CONSULTATION</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-6 order-1 lg:order-2">
+<div class="relative aspect-square p-12 bg-surface">
+<div class="w-full h-full bg-cover bg-center whisper-shadow" data-alt="An interior shot of a luxurious, minimalist jewelry boutique's private consultation room. The room features elegant cream furniture, a marble table, and soft ambient lighting. On the table, various jewelry sketches and loose diamonds are displayed alongside a crystal glass of water. The atmosphere is quiet, sophisticated, and exclusive, reflecting the 'Bridal Concierge' service experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDn5tPVIi2RNepPbuPQ2hytovRBXU831EpAxuPXNehjCqAdGKYvwpBvVQtU2ZefY5j2OQ7oE8OT_xzHabFW9SYDEdDB8l0SsnRdZA9PmSSnPyqTxr2Gl4wgeR1n6Sh9fozJAJoo8RUbrv9e2iJdaE2KogP4iT8SbNQDOGNSc5PpGDWAKzaXVw2IiMT_Eaf0dvImKqoJyR3mLOMVHkIQCeTH3bsCGcSEeAOgh0sUq2OjJVsjVE03gS-h2aO7mTyZFpfOwEoq_h7mSYLu')">
+</div>
+<!-- Decorative Frame -->
+<div class="absolute inset-0 border-[0.5px] border-outline-variant/50 pointer-events-none -m-4"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fine Line Newsletter -->
+<section class="py-section-gap px-margin-desktop text-center max-w-2xl mx-auto">
+<h3 class="font-headline-sm text-headline-sm mb-4">The Jewellery Diary</h3>
+<p class="font-body-md text-on-surface-variant mb-12">Receive exclusive access to new collection launches and bridal styling guides.</p>
+<div class="flex flex-col sm:flex-row gap-4 items-end">
+<div class="flex-grow group relative text-left">
+<label class="font-label-caps text-[10px] text-on-surface-variant mb-2 block uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-on-surface py-3 px-0 focus:ring-0 focus:border-primary placeholder:text-outline-variant/50 font-body-md transition-all" placeholder="YOUR@EMAIL.COM" type="email"/>
+</div>
+<button class="px-8 py-3 bg-primary text-surface font-button text-button hover:bg-surface-tint transition-colors">SUBSCRIBE</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col items-center justify-center py-section-gap px-margin-desktop w-full max-w-container-max mx-auto text-center space-y-8">
+<h2 class="font-headline-sm text-headline-sm tracking-widest uppercase">UDAY JEWELLERS</h2>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all duration-300" href="#">Shipping &amp; Returns</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-all duration-300" href="#">Jewellery Care</a>
+</div>
+<div class="flex gap-8 pt-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+<p class="font-label-caps text-[10px] tracking-widest text-on-surface-variant opacity-60 pt-8">
+                © 2024 UDAY JEWELLERS. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple Micro-interaction for scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-4');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.add('py-6');
+                header.classList.remove('py-4');
+            }
+        });
+
+        // Horizontal scroll animation for products could be added here
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

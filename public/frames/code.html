@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AURELIAN Haute Joaillerie</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* Custom scrollbar for carousel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary": "#d0cdcd",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary": "#313030",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed-variant": "#4f471b",
+                        "surface-variant": "#353534",
+                        "secondary": "#d4c78f",
+                        "secondary-fixed": "#f1e3a9",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#c2b57f",
+                        "inverse-primary": "#735c00",
+                        "tertiary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "secondary-container": "#4f471b",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#d4c78f",
+                        "primary": "#f2ca50",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#454544",
+                        "on-secondary-fixed": "#211b00",
+                        "outline-variant": "#4d4635",
+                        "on-background": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "surface-tint": "#e9c349",
+                        "surface-bright": "#3a3939",
+                        "on-primary": "#3c2f00",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#383006",
+                        "surface-container": "#201f1f",
+                        "primary-fixed-dim": "#e9c349",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "primary-container": "#d4af37"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "gutter": "32px",
+                        "section-gap": "160px",
+                        "margin-desktop": "80px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                        "display-lg": ["80px", {"lineHeight": "90px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 transition-all duration-500" id="main-nav">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full mx-auto max-w-container-max">
+<!-- Mobile Menu Button (Hidden on Desktop) -->
+<button class="md:hidden text-primary hover:bg-primary/5 p-2 transition-all duration-500">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Links (Hidden on Mobile) -->
+<ul class="hidden md:flex space-x-8 items-center">
+<li><a class="font-label-sm text-label-sm tracking-[0.1em] uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a></li>
+<li><a class="font-label-sm text-label-sm tracking-[0.1em] uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">HERITAGE</a></li>
+<li><a class="font-label-sm text-label-sm tracking-[0.1em] uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SIGNATURE</a></li>
+</ul>
+<!-- Brand Logo -->
+<a class="font-display-lg text-headline-md md:text-headline-lg text-primary tracking-widest absolute left-1/2 transform -translate-x-1/2" href="#">
+                AURELIAN
+            </a>
+<!-- Right Actions -->
+<ul class="hidden md:flex space-x-8 items-center justify-end">
+<li><a class="font-label-sm text-label-sm tracking-[0.1em] uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ATELIER</a></li>
+<li><a class="font-label-sm text-label-sm tracking-[0.1em] uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CONCIERGE</a></li>
+</ul>
+<div class="flex items-center space-x-4 md:space-x-6">
+<button class="text-primary hover:bg-primary/5 p-2 transition-all duration-500 hidden md:block">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-primary hover:bg-primary/5 p-2 transition-all duration-500">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="text-primary hover:bg-primary/5 p-2 transition-all duration-500 relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-surface/40 mix-blend-multiply z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-20"></div>
+<img alt="Aurelian Haute Joaillerie Hero Background" class="w-full h-full object-cover parallax-bg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt3pcqDUL-l32yoUUFMQl_THBU4MQYBH79y_8m_lpuQyr5aBsGwMZnH54vnQO-ZvtajEYvJ8uPMsZfc1C4g3YqVDnVv0lX9ReaEC2CImw6nAXBriGVE33kSKlVPI4JBseLZrLNN0tU0HeDHLjsP60G9sd-AjwzHq2ElABYULzDPLf51dgluwUoTwpGvNRShD_qBOW5d8-lWyFtXfvTBwWSiu63j-jIdCwVhJk5_m6Y5mTG-fDnzjCHuLt1r9K9VTbuzX8X7uiW48sl" style="object-position: center 20%;"/>
+</div>
+<div class="relative z-30 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center mt-20">
+<span class="font-label-sm text-label-sm tracking-[0.2em] text-primary uppercase mb-6 block opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">High Jewelry Collection</span>
+<h1 class="font-display-lg text-display-lg md:text-[100px] text-on-surface leading-tight mb-8 opacity-0 animate-[slideUp_1s_ease-out_0.8s_forwards]">
+                The Alchemy<br/><span class="italic text-primary font-light">of Gold</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 opacity-0 animate-[fadeIn_1s_ease-out_1.2s_forwards]">
+                Discover a realm where time-honored craftsmanship meets contemporary vision. Each piece is a testament to the enduring legacy of Aurelian.
+            </p>
+<a class="inline-flex items-center justify-center px-10 py-4 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-500 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]" href="#collections">
+                Explore The Collection
+            </a>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 opacity-50 animate-bounce">
+<span class="material-symbols-outlined text-primary font-light">arrow_downward</span>
+</div>
+</header>
+<!-- Curated Collections (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="collections">
+<div class="text-center mb-24">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Curated Collections</h2>
+<div class="w-12 h-px bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group relative overflow-hidden h-[500px] md:h-full cursor-pointer">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+<img alt="High Jewelry" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A close-up studio shot of a magnificent diamond and gold necklace displayed on a dark grey velvet bust. The lighting is dramatic, highlighting the intricate details of the gold filigree and the brilliant sparkle of the central diamond pendant. The background is a deep, rich charcoal, creating a luxurious and moody atmosphere. The overall aesthetic is highly detailed, editorial, and sophisticated, emphasizing the timeless opulence of the jewelry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzQ2gycE4vQvT_kTfpFLoLlQBOLo3_hMimlrLT_e5ERuDaZHNOHoT_nKH9n8W7oUDcsn8h7PltFa_MzF-HresXuRl3Tw840ATAcLZRtAatfGiqS8YoH9VL-_mgLqfK3UfTWNR8IBPkbUzC3f5neacNNGBDCdcTPfvdQKYX3a6uVBL3YBJlHYxVjzEeZMzQKA826c9k0TRCPPi8MBctF-2Oh3S2haubrrrLg7fF_4JNqb9_jLKJmm_LwMxvi4v0KifNIyFA8s2KqWRP"/>
+<div class="absolute bottom-0 left-0 p-10 z-20 w-full bg-gradient-to-t from-surface/90 to-transparent">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-2 block">Exclusive</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">High Jewelry</h3>
+<div class="h-px w-0 bg-primary group-hover:w-full transition-all duration-700 ease-in-out"></div>
+</div>
+</div>
+<!-- Stacked Cards -->
+<div class="md:col-span-4 flex flex-col gap-gutter h-full">
+<!-- Bridal -->
+<div class="group relative overflow-hidden flex-1 min-h-[300px] cursor-pointer">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+<img alt="Bridal Collection" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A delicate pair of diamond engagement rings resting on a piece of raw, dark slate. Soft, diffused natural light catches the facets of the diamonds, creating subtle rainbows. The background is slightly out of focus, featuring warm, golden tones that contrast with the cool grey of the slate. The composition is elegant and minimalist, conveying a sense of enduring love and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVfsuBF70vjWvyym92cfYV56rpzfIi6yH_UP-1bmelCnuKtcKF1DDvzuZYjugrj1tqK2y2h-IB5WfN0AYj_FDMegldyjAkl2BTzZgqE_E5u50OEMiKGj0mLf_JsLTSRX2DX_zJA3l_ANlF9IesRDHFKdMuuPhzzYp4GqBCvrRoPuPvPHU58xejjhCiSyN-rQLCmMeZ6hWa0SljleALglgGFoG2jp5gGYPvlyBPCzLT7aquY2wSRtR6bDTEgQPAB-X1N2MPUgvKetyv"/>
+<div class="absolute bottom-0 left-0 p-8 z-20 w-full bg-gradient-to-t from-surface/90 to-transparent">
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2">Bridal</h3>
+<div class="h-px w-0 bg-primary group-hover:w-1/2 transition-all duration-700 ease-in-out"></div>
+</div>
+</div>
+<!-- Signature -->
+<div class="group relative overflow-hidden flex-1 min-h-[300px] cursor-pointer">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+<img alt="Signature Collection" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A minimalist composition featuring a sleek, modern gold bracelet with geometric diamond accents. The bracelet is placed diagonally across a textured, dark grey concrete surface. A single beam of warm light cuts across the scene, highlighting the polish of the gold. The image is styled with a stark, high-contrast aesthetic, emphasizing the architectural design of the jewelry piece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzga_31bhp4hkmQU_yehc6rZiY4BT0PIhirz-ORk8v0A9ISjSV-LRRsplM9DAFLXMKpEuSAzCNp2g43TNfQoNytSiS-1X4H18TfoGFvBLecQwUwYBH6ttH4d89lSJ4b0y5xZT7Vm45TJUeNGXqZlj3NAEqQnnedWqmAppKv3Q-i3T1hiSLAVaycYQ1xHwgG3lCGMSGOHI6FMXf3baTgWqB77PTuBZQJjX5aCmAEkNT9FUtoV0SH-4CHgd8x9OYC246sNYVUJdgNFL"/>
+<div class="absolute bottom-0 left-0 p-8 z-20 w-full bg-gradient-to-t from-surface/90 to-transparent">
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2">Signature</h3>
+<div class="h-px w-0 bg-primary group-hover:w-1/2 transition-all duration-700 ease-in-out"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Atelier (Editorial Layout) -->
+<section class="py-section-gap relative bg-surface-container-lowest overflow-hidden border-y border-outline-variant/10">
+<!-- Abstract background element -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-surface-variant/5 transform skew-x-12 translate-x-1/4"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
+<!-- Text Content -->
+<div class="order-2 md:order-1">
+<span class="font-label-sm text-label-sm text-primary tracking-[0.2em] uppercase mb-6 block">Heritage &amp; Craft</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-[56px] leading-tight text-on-surface mb-8">The Heart of<br/><i class="text-primary font-light">The Atelier</i></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 font-light">
+                        For over a century, our master artisans have breathed life into the rarest gems and noblest metals. Every curve, every setting is a dialogue between tradition and innovation.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant/80 mb-12">
+                        In the hushed halls of our Geneva atelier, time slows down. Here, patience is the ultimate luxury, and perfection is the only acceptable standard. Discover the meticulous process behind our iconic creations.
+                    </p>
+<a class="inline-flex items-center text-primary font-label-sm text-label-sm uppercase tracking-widest group border-b border-primary/30 pb-2 hover:border-primary transition-colors duration-300" href="#">
+                        Discover Our Savoir-Faire
+                        <span class="material-symbols-outlined ml-4 transform group-hover:translate-x-2 transition-transform duration-300 text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Imagery Asymmetric -->
+<div class="order-1 md:order-2 relative h-[600px] w-full">
+<div class="absolute top-0 right-0 w-3/4 h-4/5 z-10">
+<img alt="Artisan Craftsmanship" class="w-full h-full object-cover shadow-2xl shadow-black/50" data-alt="A master jeweler's hands meticulously working on a delicate gold setting using precision tools. The scene is shot in macro detail, focusing on the specialized instruments and the intricate craftsmanship. The lighting is focused and warm, illuminating the workbench while the surrounding area falls into deep, atmospheric shadow. The image captures the essence of heritage craftsmanship and intense concentration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwG6_cnKu4lxuX4iac6YhgV2CYL6Oxw1U2o7CYpm3o2tXCdmTMxA4ZY5b6SJgvYIxMMVtMm6t6tLR55E4COQoMCcbzuM3MZBjevd4N7NIss79r27i50FoY_WocJ9M94ThKrteSLPbKFGSEETVnYGf5rLVGY7o68RDvBme9A1FIi7hKwCg5uN8b9TDwB1sZtbirBrcynfUaR0It_dNLDb8_9JhRaruWmqz5hcKQCmLZjiYLCNilglRY52-5lIlNnG2JS4PxV61YVkA0"/>
+</div>
+<div class="absolute bottom-0 left-0 w-1/2 h-1/2 z-20 border-r border-t border-outline-variant/20 p-4 bg-surface/80 backdrop-blur-md">
+<img alt="Raw Materials" class="w-full h-full object-cover" data-alt="A close-up of raw, uncut gemstones and pure gold nuggets resting on a dark, textured leather surface. The raw materials are bathed in soft, natural light that highlights their potential and inherent beauty. The color palette is rich with deep ambers, sparkling whites, and the muted dark tones of the leather. The mood is earthy yet profoundly luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC8j4oHJewN1fxdjJ5Dto6sMTpHb4FK55AWaKA9nIATK7EZZpaE2TjDdG52j1FB2xUDi52wRWLICsUr0LeDPA43nNeKK4XctUtlBATP9anrLDUWuvGLH9qwt6Tw5pbiecDAZPAFiGkA8YIp2yIVqR0RHOnjn0BYVf3kDbme32PlNr123Ec7o-eAFH50K5iXpR-QuOvtNRiFc2z5oKBXZO04v45qVjOIq1vxrT48EGwZOGfs7Cz2r3ocmXVdy4pNzNr_9ELXEemv7rq"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest relative w-full py-section-gap border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-1 mb-12 md:mb-0">
+<h4 class="font-display-lg text-headline-lg text-primary mb-6">AURELIAN</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Defining timeless opulence through unparalleled craftsmanship and heritage.
+                </p>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">PRIVACY POLICY</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CARE GUIDE</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">BOUTIQUES</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CONTACT CONCIERGE</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">AUTHENTICITY</a>
+</div>
+<div class="flex flex-col md:items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase mb-4 block">Newsletter</span>
+<div class="relative w-full max-w-xs border-b border-primary/30 hover:border-primary transition-colors duration-300">
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md placeholder-on-surface-variant/50 py-2 pl-0 pr-8" placeholder="Your Email" type="email"/>
+<button class="absolute right-0 top-1/2 transform -translate-y-1/2 text-primary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-24 text-center md:text-left border-t border-outline-variant/5 pt-8">
+<p class="font-body-md text-body-md text-secondary dark:text-secondary text-sm">
+                © 2024 AURELIAN HAUTE JOAILLERIE. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+<!-- Simple animations via Tailwind arbitrary values in classes -->
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script>
+        // Simple nav background blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'shadow-black/10');
+                nav.style.backgroundColor = 'rgba(19, 19, 19, 0.95)'; // Deep charcoal
+            } else {
+                nav.classList.remove('shadow-lg', 'shadow-black/10');
+                nav.style.backgroundColor = 'rgba(19, 19, 19, 0.8)';
+            }
+        });
+    </script>
+</body></html>
