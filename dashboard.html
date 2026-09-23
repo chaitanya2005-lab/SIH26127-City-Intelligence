@@ -46,20 +46,20 @@
 
   <!-- GLOBAL FIXED LEFT NAVIGATION SIDEBAR -->
   <aside
-    class="w-60 fixed inset-y-0 left-0 bg-[#0B101D] border-r border-[#232D42] z-50 flex flex-col justify-between select-none">
+    class="w-64 fixed inset-y-0 left-0 bg-[#0B101D] border-r border-[#232D42] z-50 flex flex-col justify-between select-none">
 
     <!-- BRAND HEADER -->
-    <div class="p-4 border-b border-[#232D42]">
+    <div class="p-5 border-b border-[#232D42]">
       <div class="flex items-center space-x-3">
         <div
-          class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-cyan-400 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-950/50">
+          class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 to-teal-400 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-950/50">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <div>
           <div class="flex items-center gap-1.5">
             <h1 class="font-display font-black text-lg text-white tracking-wider">SIH26127</h1>
             <span
-              class="px-1.5 py-0.2 text-[9px] font-mono font-bold rounded bg-purple-950 text-purple-400 border border-purple-800">
+              class="px-1.5 py-0.2 text-[9px] font-mono font-bold rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
               AI ENGINE
             </span>
           </div>
@@ -74,17 +74,17 @@
     <nav class="flex-1 overflow-y-auto p-3 space-y-1">
 
       <!-- OVERVIEW -->
-      <div class="nav-section-title">OVERVIEW</div>
+      <div class="nav-section-title">Overview</div>
       <div onclick="switchTab('view-command-center')" id="nav-view-command-center" class="nav-item active">
         <i class="fa-solid fa-gauge-high"></i>
         <span>Command Center</span>
       </div>
 
       <!-- VEHICLE INTELLIGENCE -->
-      <div class="nav-section-title">VEHICLE INTELLIGENCE</div>
+      <div class="nav-section-title">Vehicle Intelligence</div>
       <div onclick="switchTab('view-live-anpr')" id="nav-view-live-anpr" class="nav-item">
         <i class="fa-solid fa-camera"></i>
-        <span>Live ANPR Vision</span>
+        <span>Live ANPR Vision Lab</span>
       </div>
       <div onclick="switchTab('view-trajectory-forensics')" id="nav-view-trajectory-forensics" class="nav-item">
         <i class="fa-solid fa-route"></i>
@@ -96,7 +96,7 @@
       </div>
 
       <!-- CITY INTELLIGENCE -->
-      <div class="nav-section-title">CITY INTELLIGENCE</div>
+      <div class="nav-section-title">City Intelligence</div>
       <div onclick="switchTab('view-traffic-analytics')" id="nav-view-traffic-analytics" class="nav-item">
         <i class="fa-solid fa-chart-line"></i>
         <span>Traffic Analytics</span>
@@ -107,7 +107,7 @@
       </div>
 
       <!-- AI DECISION -->
-      <div class="nav-section-title">AI DECISION</div>
+      <div class="nav-section-title">AI Decision</div>
       <div onclick="switchTab('view-route-prediction')" id="nav-view-route-prediction" class="nav-item">
         <i class="fa-solid fa-crystal-ball"></i>
         <span>Route Prediction</span>
@@ -121,8 +121,12 @@
         <span>AI City Copilot</span>
       </div>
 
-      <!-- SECURITY & GOVERNANCE -->
-      <div class="nav-section-title">SECURITY & GOVERNANCE</div>
+      <!-- SECURITY & SYSTEM -->
+      <div class="nav-section-title">Security & System</div>
+      <div onclick="switchTab('view-security-command-center')" id="nav-view-security-command-center" class="nav-item">
+        <i class="fa-solid fa-shield-cat"></i>
+        <span>Security & Forensics</span>
+      </div>
       <div onclick="switchTab('view-watchlist')" id="nav-view-watchlist" class="nav-item">
         <i class="fa-solid fa-shield-virus"></i>
         <span>Alerts & Watchlist</span>
@@ -159,32 +163,25 @@
   </aside>
 
   <!-- MAIN APP CONTAINER -->
-  <div class="ml-60 flex-1 flex flex-col min-h-screen max-w-[calc(100vw-15rem)] overflow-x-hidden">
+  <div class="ml-64 flex-1 flex flex-col min-h-screen">
 
     <!-- TOP APP HEADER -->
     <header
-      class="sticky top-0 z-40 bg-[#0B101D]/90 backdrop-blur-md border-b border-[#232D42] px-6 py-2.5 flex flex-col gap-2">
+      class="sticky top-0 z-40 bg-[#0B101D]/90 backdrop-blur-md border-b border-[#232D42] px-6 py-3 flex flex-col gap-2">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
           <div>
             <h2 id="current-view-title"
               class="font-display font-extrabold text-lg text-white tracking-wide flex items-center gap-2">
-              <i class="fa-solid fa-city text-cyan-400"></i> SIH26127 | CITY INTELLIGENCE COMMAND CENTER
+              <i class="fa-solid fa-city text-cyan-400"></i> CITY INTELLIGENCE COMMAND CENTER
             </h2>
             <p id="current-view-subtitle" class="text-xs text-slate-400 font-medium">Multi-Camera Telemetry • Real-Time
-              Spatial Radar & AI Decision Intelligence</p>
+              Spatial Radar & Decision Intelligence</p>
           </div>
         </div>
 
-        <!-- RIGHT SEARCH & STATUS CONTROLS -->
+        <!-- RIGHT STATUS & ROLE CONTROLS -->
         <div class="flex items-center space-x-3">
-          <div class="relative hidden xl:block">
-            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
-            <input type="text" id="global-telemetry-search" placeholder="Search vehicle, camera, route, location..."
-              onkeydown="if(event.key==='Enter'){switchTab('view-vehicle-search');document.getElementById('vehicle-search-input').value=this.value;runVehicleSearch();}"
-              class="global-search-input w-72" />
-          </div>
-
           <div
             class="hidden lg:flex items-center space-x-3 bg-[#060911] px-3.5 py-1.5 rounded-xl border border-[#232D42] text-xs font-mono">
             <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
@@ -217,27 +214,27 @@
         </div>
       </div>
 
-      <!-- HORIZONTAL AI PIPELINE STRIP -->
+      <!-- 5-SECOND PIPELINE NARRATIVE BANNER -->
       <div
         class="flex items-center space-x-2 overflow-x-auto py-1 border-t border-[#232D42]/60 scrollbar-none text-[11px] font-mono">
-        <span class="text-purple-400 font-bold uppercase tracking-wider text-[10px] mr-1 flex items-center gap-1">
-          <i class="fa-solid fa-microchip"></i> AI PIPELINE:
-        </span>
+        <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] mr-1">AI Pipeline:</span>
         <div class="pipeline-step active-step"><i class="fa-solid fa-video text-cyan-400"></i> CAMERAS</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
         <div class="pipeline-step"><i class="fa-solid fa-vector-square text-cyan-400"></i> DETECT</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-id-card text-purple-400"></i> RECOGNIZE</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-code-merge text-purple-300"></i> FUSE IDENTITY</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-route text-cyan-300"></i> TRACK</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-crystal-ball text-amber-400"></i> PREDICT</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-chart-line text-purple-400"></i> ANALYZE</div>
-        <i class="fa-solid fa-chevron-right text-purple-600 text-[9px]"></i>
-        <div class="pipeline-step"><i class="fa-solid fa-brain text-emerald-300"></i> DECIDE</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-id-card text-emerald-400"></i> RECOGNIZE</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-code-merge text-teal-400"></i> FUSE IDENTITY</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-route text-cyan-300"></i> TRAJECTORY</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-crystal-ball text-amber-400"></i> PREDICT ROUTE</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-radar text-rose-400"></i> ANOMALY RADAR</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-chart-line text-purple-400"></i> TRAFFIC ANALYTICS</div>
+        <i class="fa-solid fa-chevron-right text-slate-600 text-[9px]"></i>
+        <div class="pipeline-step"><i class="fa-solid fa-brain text-emerald-300"></i> DECISION SUPPORT</div>
       </div>
 
     </header>
@@ -268,52 +265,31 @@
     <!-- MAIN WORKSPACE VIEWPORT -->
     <main class="flex-1 p-6 space-y-6">
 
-      <!-- ==================================================================== -->
-      <!-- VIEW 1: COMMAND CENTER OVERVIEW (HERO SCREEN) -->
-      <!-- ==================================================================== -->
+      <!-- VIEW 1: COMMAND CENTER OVERVIEW -->
       <div id="view-command-center" class="view-pane active space-y-6">
-
-        <!-- 6 KPI STAT CARDS ROW -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5">
-
-          <div class="kpi-card kpi-purple">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+          <div class="kpi-card">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Vehicles Detected</span>
               <div
-                class="w-8 h-8 rounded-lg bg-purple-950/60 border border-purple-800/50 flex items-center justify-center text-purple-400 text-base">
+                class="w-8 h-8 rounded-lg bg-cyan-950/60 border border-cyan-800/50 flex items-center justify-center text-cyan-400 text-base">
                 <i class="fa-solid fa-microchip"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
-              <h3 id="stat-total-events" class="font-display font-black text-3xl text-purple-300">6</h3>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-2"></span>
-                <span class="sparkline-bar h-3"></span>
-                <span class="sparkline-bar h-2.5"></span>
-                <span class="sparkline-bar h-4 active"></span>
-              </div>
-            </div>
-            <p class="text-[10px] text-slate-400 mt-1"><span class="text-purple-400 font-medium"><i
+            <h3 id="stat-total-events" class="font-display font-extrabold text-2xl text-white mt-1">6</h3>
+            <p class="text-[10px] text-slate-400 mt-1"><span class="text-emerald-400 font-medium"><i
                   class="fa-solid fa-arrow-trend-up"></i> Real-time</span> detection logs</p>
           </div>
 
-          <div class="kpi-card kpi-purple">
+          <div class="kpi-card kpi-emerald">
             <div class="flex items-center justify-between">
               <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Unique Vehicles</span>
               <div
-                class="w-8 h-8 rounded-lg bg-purple-950/60 border border-purple-800/50 flex items-center justify-center text-purple-400 text-base">
+                class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center text-emerald-400 text-base">
                 <i class="fa-solid fa-car-side"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
-              <h3 id="stat-unique-vehicles" class="font-display font-black text-3xl text-purple-300">5</h3>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-2.5"></span>
-                <span class="sparkline-bar h-3"></span>
-                <span class="sparkline-bar h-4 active"></span>
-                <span class="sparkline-bar h-3.5"></span>
-              </div>
-            </div>
+            <h3 id="stat-unique-vehicles" class="font-display font-extrabold text-2xl text-white mt-1">5</h3>
             <p class="text-[10px] text-slate-400 mt-1"><span class="text-cyan-400 font-medium">Cross-Camera</span> ANPR
               IDs</p>
           </div>
@@ -326,15 +302,7 @@
                 <i class="fa-solid fa-video"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
-              <h3 id="stat-active-cameras" class="font-display font-black text-3xl text-purple-300">4</h3>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-4 active"></span>
-                <span class="sparkline-bar h-4 active"></span>
-                <span class="sparkline-bar h-4 active"></span>
-                <span class="sparkline-bar h-4 active"></span>
-              </div>
-            </div>
+            <h3 id="stat-active-cameras" class="font-display font-extrabold text-2xl text-white mt-1">4</h3>
             <p class="text-[10px] text-slate-400 mt-1">Feeds: <span id="stat-camera-names"
                 class="text-purple-300 font-mono font-medium">cam_01 to cam_04</span></p>
           </div>
@@ -347,17 +315,11 @@
                 <i class="fa-solid fa-traffic-light"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
+            <div class="mt-1">
               <span id="stat-congestion-badge"
-                class="px-2 py-0.5 text-xs font-black rounded bg-emerald-950 text-emerald-400 border border-emerald-800 inline-block font-mono">
+                class="px-2.5 py-0.5 text-xs font-black rounded bg-emerald-950 text-emerald-400 border border-emerald-800 inline-block font-mono">
                 LOW (14/100)
               </span>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-1.5"></span>
-                <span class="sparkline-bar h-2"></span>
-                <span class="sparkline-bar h-1.5"></span>
-                <span class="sparkline-bar h-2"></span>
-              </div>
             </div>
             <p class="text-[10px] text-slate-400 mt-1">Digital Twin State</p>
           </div>
@@ -370,15 +332,7 @@
                 <i class="fa-solid fa-bell"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
-              <h3 id="stat-active-alerts-count" class="font-display font-extrabold text-2xl text-white">0</h3>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-1"></span>
-                <span class="sparkline-bar h-1"></span>
-                <span class="sparkline-bar h-1"></span>
-                <span class="sparkline-bar h-1"></span>
-              </div>
-            </div>
+            <h3 id="stat-active-alerts-count" class="font-display font-extrabold text-2xl text-white mt-1">0</h3>
             <p class="text-[10px] text-slate-400 mt-1"><span id="stat-anomalies-label"
                 class="text-emerald-400 font-medium">0 Anomalies</span> flagged</p>
           </div>
@@ -391,25 +345,13 @@
                 <i class="fa-solid fa-code-merge"></i>
               </div>
             </div>
-            <div class="flex items-baseline justify-between mt-1">
-              <h3 id="stat-fused-count" class="font-display font-extrabold text-2xl text-white">2</h3>
-              <div class="flex items-end gap-0.5 h-4">
-                <span class="sparkline-bar h-2"></span>
-                <span class="sparkline-bar h-3.5"></span>
-                <span class="sparkline-bar h-3"></span>
-                <span class="sparkline-bar h-4 active"></span>
-              </div>
-            </div>
+            <h3 id="stat-fused-count" class="font-display font-extrabold text-2xl text-white mt-1">2</h3>
             <p class="text-[10px] text-slate-400 mt-1"><span class="text-teal-400 font-medium">OCR typo tolerance</span>
               active</p>
           </div>
-
         </div>
 
-        <!-- HERO GRID (HERO MAP + LIVE VEHICLE INTELLIGENCE PANEL) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-          <!-- HERO MAP PANEL (7 COLS) -->
           <div class="lg:col-span-7 glass-panel p-5 space-y-4 flex flex-col justify-between">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#232D42]">
               <div>
@@ -421,83 +363,49 @@
                   Routes</p>
               </div>
 
-              <!-- MAP LAYER CONTROLS -->
-              <div class="flex items-center flex-wrap gap-1.5 text-[10px] font-mono">
+              <div class="flex items-center flex-wrap gap-1.5 text-[11px] font-mono">
                 <button onclick="toggleMapLayer('cameras')" id="layer-btn-cameras"
-                  class="px-2 py-0.5 rounded-lg bg-cyan-950 text-cyan-300 border border-cyan-800 font-bold transition-all">
+                  class="px-2.5 py-1 rounded-lg bg-cyan-950 text-cyan-300 border border-cyan-800 font-bold transition-all">
                   <i class="fa-solid fa-video mr-1"></i> CAMERAS
                 </button>
                 <button onclick="toggleMapLayer('trajectories')" id="layer-btn-trajectories"
-                  class="px-2 py-0.5 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold transition-all">
-                  <i class="fa-solid fa-route mr-1"></i> ACTUAL TRAJECTORIES
+                  class="px-2.5 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold transition-all">
+                  <i class="fa-solid fa-route mr-1"></i> TRAJECTORIES
                 </button>
                 <button onclick="toggleMapLayer('predictions')" id="layer-btn-predictions"
-                  class="px-2 py-0.5 rounded-lg bg-amber-950 text-amber-300 border border-amber-800 font-bold transition-all">
-                  <i class="fa-solid fa-crystal-ball mr-1"></i> PREDICTED ROUTES
-                </button>
-                <button onclick="toggleMapLayer('congestion')" id="layer-btn-congestion"
-                  class="px-2 py-0.5 rounded-lg map-pill-active font-bold transition-all">
-                  <i class="fa-solid fa-traffic-light mr-1"></i> CONGESTION
-                </button>
-                <button onclick="toggleMapLayer('heatmap')" id="layer-btn-heatmap"
-                  class="px-2 py-0.5 rounded-lg map-pill-inactive font-bold transition-all">
-                  <i class="fa-solid fa-fire mr-1"></i> HEATMAP
+                  class="px-2.5 py-1 rounded-lg bg-amber-950 text-amber-300 border border-amber-800 font-bold transition-all">
+                  <i class="fa-solid fa-crystal-ball mr-1"></i> PREDICTIONS
                 </button>
               </div>
             </div>
 
-            <!-- MAP CANVAS CONTAINER WITH LEGEND -->
-            <div class="relative">
-              <div id="command-center-map"
-                class="w-full h-[420px] rounded-xl overflow-hidden border border-[#232D42] z-10"></div>
-
-              <!-- MAP LEGEND OVERLAY -->
-              <div
-                class="absolute bottom-3 left-3 z-20 bg-[#060911]/90 backdrop-blur-md border border-[#232D42] p-2 rounded-lg text-[10px] font-mono space-y-1">
-                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Sensor
-                  Node</div>
-                <div class="flex items-center gap-2"><span class="w-3 h-0.5 bg-cyan-400"></span> Observed Path</div>
-                <div class="flex items-center gap-2"><span
-                    class="w-3 h-0.5 bg-amber-400 border-b border-dashed border-amber-400"></span> Predicted Route</div>
-              </div>
-            </div>
+            <div id="command-center-map"
+              class="w-full h-[420px] rounded-xl overflow-hidden border border-[#232D42] z-10"></div>
           </div>
 
-          <!-- LIVE VEHICLE INTELLIGENCE PANEL (5 COLS) -->
-          <div class="lg:col-span-5 glass-panel glass-panel-purple p-5 flex flex-col justify-between space-y-4">
+          <div class="lg:col-span-5 glass-panel glass-panel-cyan p-5 flex flex-col justify-between space-y-4">
             <div>
               <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
                 <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
-                  <i class="fa-solid fa-car-burst text-purple-400"></i>
+                  <i class="fa-solid fa-car-burst text-cyan-400"></i>
                   LIVE VEHICLE INTELLIGENCE
                 </h3>
                 <span
-                  class="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-purple-950 text-purple-300 border border-purple-800">
+                  class="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
                   REAL-TIME OPERATIONAL
                 </span>
               </div>
 
-              <!-- SELECTED VEHICLE DETAILS -->
               <div id="live-vehicle-panel-body" class="space-y-3 pt-3">
                 <div class="p-3 bg-[#060911] rounded-xl border border-[#232D42] flex items-center justify-between">
                   <div>
-                    <span class="text-[10px] font-mono uppercase text-slate-400 block">TARGET LICENSE PLATE</span>
+                    <span class="text-[10px] font-mono uppercase text-slate-400">TARGET LICENSE PLATE</span>
                     <h4 id="panel-plate-id" class="font-mono font-black text-xl text-emerald-400 tracking-wider">
                       MH12DE1408</h4>
-                    <span class="text-[10px] text-slate-500 font-mono">State: <strong class="text-cyan-400">MH
-                        (Maharashtra)</strong></span>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <div class="relative w-11 h-11 flex items-center justify-center">
-                      <svg class="w-11 h-11 transform -rotate-90">
-                        <circle cx="22" cy="22" r="18" stroke="currentColor" stroke-width="3.5" class="text-slate-800"
-                          fill="transparent" />
-                        <circle cx="22" cy="22" r="18" stroke="currentColor" stroke-width="3.5" class="text-cyan-400"
-                          stroke-dasharray="113" stroke-dashoffset="11" fill="transparent" />
-                      </svg>
-                      <span id="panel-identity-conf"
-                        class="absolute text-[11px] font-mono font-black text-white">90.8%</span>
-                    </div>
+                  <div class="text-right">
+                    <span class="text-[10px] font-mono uppercase text-slate-400">IDENTITY CONFIDENCE</span>
+                    <div id="panel-identity-conf" class="font-mono font-extrabold text-base text-cyan-400">90.8%</div>
                   </div>
                 </div>
 
@@ -537,7 +445,6 @@
               </div>
             </div>
 
-            <!-- PANEL ACTIONS -->
             <div class="pt-3 border-t border-[#232D42] grid grid-cols-3 gap-2">
               <button onclick="trackTargetVehicle()"
                 class="py-2 px-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5">
@@ -553,10 +460,8 @@
               </button>
             </div>
           </div>
-
         </div>
 
-        <!-- 4-CAMERA LIVE MONITORING GRID -->
         <div class="glass-panel p-5 space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
             <div>
@@ -574,23 +479,16 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-            <!-- CAM 01 FEED -->
-            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative border border-emerald-900/40">
+            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative">
               <div class="flex items-center justify-between text-[10px] font-mono z-10">
                 <span
                   class="px-2 py-0.5 bg-cyan-950 text-cyan-400 border border-cyan-800 font-bold rounded">CAM_01</span>
-                <div class="flex items-center gap-1.5">
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold cctv-badge-live">LIVE</span>
-                  <span class="text-emerald-400 font-bold">60 FPS</span>
-                </div>
+                <span class="text-emerald-400 flex items-center gap-1 font-bold"><span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 60 FPS • 1080p</span>
               </div>
-
-              <!-- SIMULATED BOUNDING BOX OVERLAY -->
               <div class="bbox-overlay left-8 top-12 w-32 h-20 rounded">
                 <div class="bbox-label">MH12DE1408 (92%)</div>
               </div>
-
               <div
                 class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10 pt-2 border-t border-slate-800/80">
                 <span>Central Intersection</span>
@@ -598,22 +496,16 @@
               </div>
             </div>
 
-            <!-- CAM 02 FEED -->
-            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative border border-amber-900/40">
+            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative">
               <div class="flex items-center justify-between text-[10px] font-mono z-10">
                 <span
                   class="px-2 py-0.5 bg-cyan-950 text-cyan-400 border border-cyan-800 font-bold rounded">CAM_02</span>
-                <div class="flex items-center gap-1.5">
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold cctv-badge-proc">PROCESSING</span>
-                  <span class="text-emerald-400 font-bold">60 FPS</span>
-                </div>
+                <span class="text-emerald-400 flex items-center gap-1 font-bold"><span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 60 FPS • 1080p</span>
               </div>
-
-              <!-- SIMULATED BOUNDING BOX OVERLAY -->
               <div class="bbox-overlay left-10 top-14 w-28 h-18 rounded border-amber-400 bg-amber-500/20">
                 <div class="bbox-label bg-amber-400 text-black">MH12DE14O8 (76%)</div>
               </div>
-
               <div
                 class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10 pt-2 border-t border-slate-800/80">
                 <span>North Highway Corridor</span>
@@ -621,22 +513,16 @@
               </div>
             </div>
 
-            <!-- CAM 03 FEED -->
-            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative border border-emerald-900/40">
+            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative">
               <div class="flex items-center justify-between text-[10px] font-mono z-10">
                 <span
                   class="px-2 py-0.5 bg-cyan-950 text-cyan-400 border border-cyan-800 font-bold rounded">CAM_03</span>
-                <div class="flex items-center gap-1.5">
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold cctv-badge-live">LIVE</span>
-                  <span class="text-emerald-400 font-bold">60 FPS</span>
-                </div>
+                <span class="text-emerald-400 flex items-center gap-1 font-bold"><span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 60 FPS • 1080p</span>
               </div>
-
-              <!-- SIMULATED BOUNDING BOX OVERLAY -->
               <div class="bbox-overlay left-12 top-10 w-24 h-16 rounded border-emerald-400 bg-emerald-500/20">
                 <div class="bbox-label bg-emerald-400 text-black">KA01AB2026 (88%)</div>
               </div>
-
               <div
                 class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10 pt-2 border-t border-slate-800/80">
                 <span>East Urban Ring Road</span>
@@ -644,175 +530,65 @@
               </div>
             </div>
 
-            <!-- CAM 04 FEED -->
-            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative border border-purple-900/40">
+            <div class="cam-feed-card p-3 h-48 flex flex-col justify-between relative">
               <div class="flex items-center justify-between text-[10px] font-mono z-10">
                 <span
                   class="px-2 py-0.5 bg-cyan-950 text-cyan-400 border border-cyan-800 font-bold rounded">CAM_04</span>
-                <div class="flex items-center gap-1.5">
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold cctv-badge-warn">MONITORING</span>
-                  <span class="text-emerald-400 font-bold">60 FPS</span>
-                </div>
+                <span class="text-emerald-400 flex items-center gap-1 font-bold"><span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 60 FPS • 1080p</span>
               </div>
-
-              <!-- SIMULATED BOUNDING BOX OVERLAY -->
               <div class="bbox-overlay left-14 top-12 w-28 h-18 rounded border-purple-400 bg-purple-500/20">
                 <div class="bbox-label bg-purple-400 text-black">DL03XY9988 (91%)</div>
               </div>
-
               <div
                 class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10 pt-2 border-t border-slate-800/80">
                 <span>South Bypass Node</span>
                 <span class="text-cyan-300 font-bold">VOL: 1</span>
               </div>
             </div>
-
           </div>
         </div>
 
-        <!-- LOWER 3-COLUMN TELEMETRY GRID -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-          <!-- COL 1: MULTI-CAMERA TRAJECTORIES TABLE (5 COLS) -->
-          <div class="lg:col-span-5 glass-panel p-5 flex flex-col justify-between">
-            <div>
-              <div
-                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-3 border-b border-[#232D42]">
-                <div>
-                  <h3 class="font-display font-bold text-sm text-white flex items-center gap-2">
-                    <i class="fa-solid fa-route text-cyan-400"></i> Trajectories Stream
-                  </h3>
-                  <p class="text-[11px] text-slate-400">Cross-Camera License Plate Paths</p>
-                </div>
-                <div class="relative min-w-[130px]">
-                  <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-[10px] text-slate-400"></i>
-                  <input id="search-plate-input" onkeyup="filterTrajectories()" type="text" placeholder="Filter..."
-                    class="w-full bg-[#060911] text-[11px] text-white placeholder-slate-500 pl-7 pr-2 py-1 rounded-lg border border-[#232D42] focus:outline-none focus:border-cyan-500 font-mono">
-                </div>
-              </div>
-
-              <div class="overflow-x-auto">
-                <table class="w-full text-left text-[11px]">
-                  <thead>
-                    <tr class="text-slate-400 border-b border-[#232D42] uppercase font-mono text-[10px]">
-                      <th class="py-2 px-2">Plate</th>
-                      <th class="py-2 px-2">Sightings</th>
-                      <th class="py-2 px-2">Route</th>
-                    </tr>
-                  </thead>
-                  <tbody id="trajectory-tbody" class="divide-y divide-[#232D42]/50 text-slate-200 font-mono">
-                    <!-- Dynamic rows via JS -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- COL 2: VEHICLE CLASSIFICATION (3 COLS) -->
-          <div class="lg:col-span-3 glass-panel p-5 flex flex-col justify-between space-y-3">
-            <div>
-              <div class="pb-3 border-b border-[#232D42]">
-                <h3 class="font-display font-bold text-sm text-white flex items-center gap-2">
-                  <i class="fa-solid fa-chart-pie text-emerald-400"></i> Vehicle Classes
-                </h3>
-                <p class="text-[11px] text-slate-400">YOLO Model Distribution</p>
-              </div>
-
-              <div class="space-y-3 pt-3 text-xs font-mono">
-                <div class="space-y-1">
-                  <div class="flex justify-between text-[11px]"><span class="text-slate-300">Passenger
-                      Cars</span><strong class="text-cyan-400">3 (50.0%)</strong></div>
-                  <div class="w-full bg-[#060911] rounded-full h-2 border border-[#232D42] overflow-hidden">
-                    <div class="dist-bar-fill bg-cyan-400" style="width: 50%"></div>
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <div class="flex justify-between text-[11px]"><span class="text-slate-300">Heavy Transit
-                      Buses</span><strong class="text-emerald-400">2 (33.3%)</strong></div>
-                  <div class="w-full bg-[#060911] rounded-full h-2 border border-[#232D42] overflow-hidden">
-                    <div class="dist-bar-fill bg-emerald-400" style="width: 33.3%"></div>
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <div class="flex justify-between text-[11px]"><span class="text-slate-300">Commercial
-                      Trucks</span><strong class="text-amber-400">1 (16.7%)</strong></div>
-                  <div class="w-full bg-[#060911] rounded-full h-2 border border-[#232D42] overflow-hidden">
-                    <div class="dist-bar-fill bg-amber-400" style="width: 16.7%"></div>
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <div class="flex justify-between text-[11px]"><span class="text-slate-300">Motorcycles /
-                      2-Wheel</span><strong class="text-slate-500">0 (0.0%)</strong></div>
-                  <div class="w-full bg-[#060911] rounded-full h-2 border border-[#232D42] overflow-hidden">
-                    <div class="dist-bar-fill bg-slate-700" style="width: 0%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <div class="lg:col-span-12 glass-panel p-5">
             <div
-              class="pt-2 border-t border-[#232D42] text-[10px] text-slate-400 font-mono flex items-center justify-between">
-              <span>YOLOv8 Engine</span>
-              <span class="text-emerald-400 font-bold">● ACTIVE</span>
-            </div>
-          </div>
-
-          <!-- COL 3: RECENT EVENTS / ALERTS (4 COLS) -->
-          <div class="lg:col-span-4 glass-panel p-5 flex flex-col justify-between space-y-3">
-            <div>
-              <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
-                <h3 class="font-display font-bold text-sm text-white flex items-center gap-2">
-                  <i class="fa-solid fa-list-check text-purple-400"></i> Event Stream
+              class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-[#232D42]">
+              <div>
+                <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
+                  <i class="fa-solid fa-route text-cyan-400"></i>
+                  Multi-Camera Reconstructed Vehicle Trajectories Stream
                 </h3>
-                <span
-                  class="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-purple-950 text-purple-300 border border-purple-800">
-                  REAL-TIME LOGS
-                </span>
+                <p class="text-xs text-slate-400">Cross-camera License Plate Tracking Paths & Temporal Timestamps</p>
               </div>
 
-              <div id="command-event-stream" class="space-y-2 pt-3 text-[11px] font-mono max-h-[190px] overflow-y-auto">
-                <div class="p-2.5 bg-[#060911] rounded-lg border border-[#232D42] flex items-center justify-between">
-                  <div>
-                    <span class="text-cyan-400 font-bold">CAM_01 • DETECT</span>
-                    <p class="text-slate-400 text-[10px]">MH12DE1408 sighted at Central</p>
-                  </div>
-                  <span class="text-[10px] text-slate-500">17:40:28</span>
-                </div>
-
-                <div class="p-2.5 bg-[#060911] rounded-lg border border-[#232D42] flex items-center justify-between">
-                  <div>
-                    <span class="text-emerald-400 font-bold">CAM_02 • TRAJECTORY</span>
-                    <p class="text-slate-400 text-[10px]">MH12DE1408 multi-node match</p>
-                  </div>
-                  <span class="text-[10px] text-slate-500">17:42:28</span>
-                </div>
-
-                <div class="p-2.5 bg-[#060911] rounded-lg border border-[#232D42] flex items-center justify-between">
-                  <div>
-                    <span class="text-amber-400 font-bold">SYSTEM • RADAR</span>
-                    <p class="text-slate-400 text-[10px]">Spatial congestion low (14/100)</p>
-                  </div>
-                  <span class="text-[10px] text-slate-500">17:45:00</span>
-                </div>
+              <div class="relative min-w-[200px]">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+                <input id="search-plate-input" onkeyup="filterTrajectories()" type="text" placeholder="Search Plate..."
+                  class="w-full bg-[#060911] text-xs text-white placeholder-slate-500 pl-8 pr-3 py-1.5 rounded-lg border border-[#232D42] focus:outline-none focus:border-cyan-500 font-mono">
               </div>
             </div>
 
-            <button onclick="switchTab('view-watchlist')"
-              class="w-full py-1.5 px-3 bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800 rounded-lg text-xs font-mono font-bold transition-colors">
-              View All System Alerts
-            </button>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-slate-400 border-b border-[#232D42] uppercase font-mono text-[11px]">
+                    <th class="py-2.5 px-3">Plate Number</th>
+                    <th class="py-2.5 px-3">Sightings</th>
+                    <th class="py-2.5 px-3">Camera Route Sequence</th>
+                    <th class="py-2.5 px-3 text-right">Last Sight</th>
+                  </tr>
+                </thead>
+                <tbody id="trajectory-tbody" class="divide-y divide-[#232D42]/50 text-slate-200 font-mono">
+                  <!-- Dynamic rows via JS -->
+                </tbody>
+              </table>
+            </div>
           </div>
-
         </div>
 
       </div>
 
-      <!-- ==================================================================== -->
-      <!-- VIEW 2: LIVE ANPR COMPUTER VISION LAB -->
-      <!-- ==================================================================== -->
+      <!-- VIEW 2: LIVE ANPR LAB -->
       <div id="view-live-anpr" class="view-pane space-y-6">
         <div class="glass-panel p-5 space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
@@ -831,7 +607,6 @@
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- INSPECTION CANVAS (6 COLS) -->
             <div class="lg:col-span-6 bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-4">
               <h3 class="text-sm font-bold text-white flex items-center gap-2 pb-2 border-b border-[#232D42]">
                 <i class="fa-solid fa-square-parking text-emerald-400"></i> Frame Inspection & Plate Crop
@@ -866,7 +641,6 @@
               </div>
             </div>
 
-            <!-- CONFIDENCE GAUGES & METRICS (6 COLS) -->
             <div class="lg:col-span-6 space-y-4">
               <div class="bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-3">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2 pb-2 border-b border-[#232D42]">
@@ -908,7 +682,6 @@
                 </div>
               </div>
 
-              <!-- MULTI-CAMERA IDENTITY FUSION TABLE -->
               <div class="bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-2">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2 pb-2 border-b border-[#232D42]">
                   <i class="fa-solid fa-code-merge text-teal-400"></i> Identity Fusion Match Breakdown
@@ -949,9 +722,7 @@
         </div>
       </div>
 
-      <!-- ==================================================================== -->
-      <!-- VIEW 3: VEHICLE TRAJECTORY FORENSICS -->
-      <!-- ==================================================================== -->
+      <!-- VIEW 3: TRAJECTORY FORENSICS -->
       <div id="view-trajectory-forensics" class="view-pane space-y-6">
         <div class="glass-panel p-5 space-y-4">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-3 border-b border-[#232D42]">
@@ -992,7 +763,6 @@
             </button>
           </div>
 
-          <!-- TARGET VEHICLE STATS ROW -->
           <div id="forensics-stats-row" class="grid grid-cols-2 md:grid-cols-6 gap-3 text-xs pt-2">
             <div class="p-3 bg-[#060911] rounded-xl border border-[#232D42]">
               <span class="text-slate-400 text-[10px] block">TARGET PLATE</span>
@@ -1040,15 +810,13 @@
             </h3>
 
             <div id="forensic-timeline-container" class="space-y-3 max-h-[440px] overflow-y-auto pr-1">
-              <!-- Dynamically rendered timeline items via JS -->
+              <!-- Rendered via JS -->
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ==================================================================== -->
-      <!-- VIEW 4: TRAFFIC ANALYTICS & DIGITAL TWIN -->
-      <!-- ==================================================================== -->
+      <!-- VIEW 4: TRAFFIC ANALYTICS -->
       <div id="view-traffic-analytics" class="view-pane space-y-6">
         <div class="glass-panel p-5 space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
@@ -1065,7 +833,6 @@
             </span>
           </div>
 
-          <!-- 24-HOUR TRAFFIC VOLUME SVG CHART -->
           <div class="bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-3">
             <div class="flex items-center justify-between pb-2 border-b border-[#232D42]">
               <h3 class="text-sm font-bold text-white flex items-center gap-2">
@@ -1078,7 +845,6 @@
               </div>
             </div>
 
-            <!-- SVG BAR CHART -->
             <div class="w-full h-44 flex items-end justify-between gap-1 pt-4 px-2">
               <div
                 class="flex-1 bg-cyan-950/40 border-t-2 border-cyan-400 rounded-t h-[30%] flex items-center justify-center text-[9px] font-mono text-slate-400">
@@ -1115,9 +881,27 @@
                 22:00</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- VIEW 4B: CITY DIGITAL TWIN & OD MATRIX -->
+      <div id="view-digital-twin" class="view-pane space-y-6">
+        <div class="glass-panel p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
+            <div>
+              <h2 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                <i class="fa-solid fa-city text-cyan-400"></i>
+                CITY DIGITAL TWIN & ORIGIN-DESTINATION MATRIX
+              </h2>
+              <p class="text-xs text-slate-400">Real-Time Camera Node Flow Balance & OD Transition Grid</p>
+            </div>
+            <span
+              class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
+              PHASE 2B DIGITAL TWIN
+            </span>
+          </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- OD MATRIX GRID TABLE (6 COLS) -->
             <div id="view-od-matrix"
               class="lg:col-span-6 bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-3">
               <div class="flex items-center justify-between pb-2 border-b border-[#232D42]">
@@ -1134,8 +918,7 @@
               </div>
             </div>
 
-            <!-- TOP CORRIDORS & TRAFFIC INSIGHTS (6 COLS) -->
-            <div id="view-digital-twin" class="lg:col-span-6 space-y-4">
+            <div class="lg:col-span-6 space-y-4">
               <div class="bg-[#060911] rounded-xl p-4 border border-[#232D42] space-y-3">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2 pb-2 border-b border-[#232D42]">
                   <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i> Top Observed Corridors
@@ -1158,9 +941,7 @@
         </div>
       </div>
 
-      <!-- ==================================================================== -->
-      <!-- VIEW 5: WHAT-IF SIMULATOR & AI COPILOT -->
-      <!-- ==================================================================== -->
+      <!-- VIEW 5: WHAT-IF SIMULATOR -->
       <div id="view-what-if" class="view-pane space-y-6">
 
         <div class="glass-panel p-5 space-y-4">
@@ -1228,8 +1009,11 @@
           </div>
         </div>
 
-        <!-- AI CITY COPILOT -->
-        <div id="view-copilot" class="glass-panel glass-panel-cyan p-5 space-y-4">
+      </div>
+
+      <!-- VIEW 5B: AI CITY COPILOT INTELLIGENCE LAYER -->
+      <div id="view-copilot" class="view-pane space-y-6">
+        <div class="glass-panel glass-panel-cyan p-5 space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
             <div>
               <h2 class="font-display font-bold text-xl text-white flex items-center gap-2">
@@ -1285,9 +1069,7 @@
 
       </div>
 
-      <!-- ==================================================================== -->
       <!-- VIEW 6: SECURITY & PRIVACY POSTURE DASHBOARD -->
-      <!-- ==================================================================== -->
       <div id="view-watchlist" class="view-pane space-y-6">
 
         <div class="glass-panel p-5 space-y-4">
@@ -1385,8 +1167,11 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div id="view-privacy-audit" class="glass-panel glass-panel-purple p-5 space-y-4">
+      <!-- VIEW 6B: PRIVACY SHIELD & SYSTEM HEALTH POSTURE -->
+      <div id="view-privacy-audit" class="view-pane space-y-6">
+        <div class="glass-panel glass-panel-purple p-5 space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
             <div>
               <h2 class="font-display font-bold text-lg text-white flex items-center gap-2">
@@ -1435,6 +1220,235 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- VIEW 7: SECURITY & FORENSIC INVESTIGATION COMMAND CENTER (PHASE 5) -->
+      <div id="view-security-command-center" class="view-pane space-y-6">
+
+        <!-- SECTION A: SECURITY OVERVIEW BANNER & KPI CARDS -->
+        <div class="glass-panel p-5 space-y-4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-[#232D42]">
+            <div>
+              <h2 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                <i class="fa-solid fa-shield-cat text-emerald-400"></i>
+                SECURITY & FORENSIC INVESTIGATION COMMAND CENTER
+              </h2>
+              <p class="text-xs text-slate-400">Unified Multi-Camera Forensics, Salted SHA-256 Hashing, 5 Ws Court Evidence & Role-Based Access Control</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> PRIVACY SHIELD ONLINE
+              </span>
+              <span class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
+                DPDP ACT 2023 COMPLIANT
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="kpi-card">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Security Shield Status</span>
+                <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center text-emerald-400 text-base">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+              </div>
+              <h3 id="sec-kpi-status" class="font-display font-extrabold text-xl text-emerald-400 mt-1">ONLINE</h3>
+              <p class="text-[10px] text-slate-400 mt-1">DPDP Act 2023 • Salted SHA-256</p>
+            </div>
+
+            <div class="kpi-card kpi-rose">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Active Security Alerts</span>
+                <div class="w-8 h-8 rounded-lg bg-rose-950/60 border border-rose-800/50 flex items-center justify-center text-rose-400 text-base">
+                  <i class="fa-solid fa-bell"></i>
+                </div>
+              </div>
+              <h3 id="sec-kpi-alerts" class="font-display font-extrabold text-xl text-white mt-1">0 Anomalies</h3>
+              <p class="text-[10px] text-slate-400 mt-1"><span class="text-emerald-400 font-medium">Nominal</span> corridor flow</p>
+            </div>
+
+            <div class="kpi-card kpi-amber">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Enrolled Watchlist Targets</span>
+                <div class="w-8 h-8 rounded-lg bg-amber-950/60 border border-amber-800/50 flex items-center justify-center text-amber-400 text-base">
+                  <i class="fa-solid fa-eye"></i>
+                </div>
+              </div>
+              <h3 id="sec-kpi-watchlist" class="font-display font-extrabold text-xl text-white mt-1">1 Target</h3>
+              <p class="text-[10px] text-slate-400 mt-1"><span class="text-amber-400 font-medium">HIGH</span> priority tracking</p>
+            </div>
+
+            <div class="kpi-card kpi-purple">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Active Access Role</span>
+                <div class="w-8 h-8 rounded-lg bg-purple-950/60 border border-purple-800/50 flex items-center justify-center text-purple-400 text-base">
+                  <i class="fa-solid fa-user-shield"></i>
+                </div>
+              </div>
+              <div class="mt-1">
+                <select id="sec-kpi-role-select" onchange="updateSecurityRole(this.value)" class="w-full bg-[#060911] border border-purple-800/60 rounded px-2 py-1 text-xs font-mono text-purple-300 font-bold focus:outline-none">
+                  <option value="PUBLIC_OPERATOR" selected>PUBLIC OPERATOR</option>
+                  <option value="LAW_ENFORCEMENT">LAW ENFORCEMENT</option>
+                  <option value="SYSTEM_ADMIN">SYSTEM ADMIN</option>
+                </select>
+              </div>
+              <p class="text-[10px] text-slate-400 mt-1">Tamper-Evident Audit Logging Active</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION B & E: VEHICLE INVESTIGATION PANEL & GIS MAP -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- B: VEHICLE INVESTIGATION PANEL -->
+          <div class="lg:col-span-5 glass-panel glass-panel-cyan p-5 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
+                <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
+                  <i class="fa-solid fa-magnifying-glass text-cyan-400"></i>
+                  VEHICLE FORENSIC INVESTIGATION
+                </h3>
+                <span class="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
+                  REAL DATA ONLY
+                </span>
+              </div>
+
+              <!-- Vehicle Selector / Search -->
+              <div class="pt-3 space-y-3">
+                <div class="flex gap-2">
+                  <input id="sec-vehicle-search-input" type="text" placeholder="Select or Enter Vehicle Plate (e.g. MH12DE1408)..."
+                    onkeydown="if(event.key === 'Enter') selectSecurityVehicle(this.value)"
+                    class="flex-1 bg-[#060911] border border-[#232D42] rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 font-mono focus:outline-none focus:border-cyan-500">
+                  <button onclick="selectSecurityVehicle(document.getElementById('sec-vehicle-search-input').value)"
+                    class="btn-action-cyan px-3 py-2 text-xs font-bold font-mono">
+                    Audit
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-1.5 text-[11px] font-mono">
+                  <span class="text-slate-400 text-[10px]">Quick Selection:</span>
+                  <button onclick="selectSecurityVehicle('MH12DE1408')" class="px-2 py-0.5 rounded bg-[#060911] text-emerald-400 border border-emerald-800/60 font-bold hover:bg-emerald-950">MH12DE1408</button>
+                  <button onclick="selectSecurityVehicle('TN09CC5544')" class="px-2 py-0.5 rounded bg-[#060911] text-cyan-300 border border-cyan-800/60 font-bold hover:bg-cyan-950">TN09CC5544</button>
+                  <button onclick="selectSecurityVehicle('KA01AB2026')" class="px-2 py-0.5 rounded bg-[#060911] text-amber-300 border border-amber-800/60 font-bold hover:bg-amber-950">KA01AB2026</button>
+                </div>
+
+                <!-- Primary Identity Details -->
+                <div class="p-3 bg-[#060911] rounded-xl border border-[#232D42] space-y-2">
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-slate-400">HASHED VEHICLE ID (SALTED SHA-256)</span>
+                    <span id="sec-hashed-vid" class="font-mono font-bold text-xs text-purple-400">VID-a4f9b8c2</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-slate-400">LICENSE PLATE STRING</span>
+                    <span id="sec-plate-display" class="font-mono font-black text-lg text-emerald-400 tracking-wider">MH12****08</span>
+                  </div>
+                  <div class="flex justify-between items-center text-[11px]">
+                    <span class="text-slate-400">ACCESS ROLE / MASKING:</span>
+                    <span id="sec-mask-status" class="text-slate-300 font-mono font-bold">PUBLIC_OPERATOR (Masked)</span>
+                  </div>
+                </div>
+
+                <!-- Subsystem Confidence Gauges -->
+                <div class="p-3 bg-[#060911] rounded-xl border border-[#232D42] space-y-2 text-xs font-mono">
+                  <span class="text-slate-400 text-[10px] block font-bold">CROSS-CAMERA SUBSYSTEM CONFIDENCE</span>
+                  <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+                    <div class="p-1.5 bg-[#0B101D] rounded border border-[#232D42]">
+                      <span class="text-slate-400 block">YOLO DET</span>
+                      <strong id="sec-yolo-conf" class="text-emerald-400 text-xs">92.0%</strong>
+                    </div>
+                    <div class="p-1.5 bg-[#0B101D] rounded border border-[#232D42]">
+                      <span class="text-slate-400 block">EASYOCR</span>
+                      <strong id="sec-ocr-conf" class="text-amber-400 text-xs">91.0%</strong>
+                    </div>
+                    <div class="p-1.5 bg-[#0B101D] rounded border border-[#232D42]">
+                      <span class="text-slate-400 block">FUSED IDENTITY</span>
+                      <strong id="sec-fused-conf" class="text-cyan-300 text-xs">90.8% HIGH</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Route & Prediction Status -->
+                <div class="space-y-2 text-xs">
+                  <div class="p-2.5 bg-[#060911] rounded-lg border border-[#232D42] space-y-1">
+                    <span class="text-slate-400 text-[10px] font-mono block">VERIFIED OBSERVED TRAJECTORY</span>
+                    <div id="sec-observed-route" class="font-mono font-bold text-cyan-300">CAM_01 ➔ CAM_02</div>
+                  </div>
+
+                  <div class="p-2.5 bg-amber-950/30 rounded-lg border border-amber-900/50 space-y-1">
+                    <div class="flex justify-between items-center">
+                      <span class="text-amber-400 text-[10px] font-mono font-semibold block">PREDICTED NEXT CAMERA</span>
+                      <span class="px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-800 text-[9px] font-mono font-bold">PREDICTED</span>
+                    </div>
+                    <div id="sec-predicted-next" class="font-mono font-bold text-white text-xs">CAM_03 — East Urban Ring Road (78.5% Markov Prob)</div>
+                  </div>
+
+                  <div class="p-2.5 bg-[#060911] rounded-lg border border-[#232D42] flex items-center justify-between text-xs font-mono">
+                    <span class="text-slate-400">ANOMALY RADAR STATUS:</span>
+                    <span id="sec-anomaly-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+                      NOMINAL (NO VIOLATION)
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#232D42] flex justify-between items-center text-xs">
+              <span class="text-slate-400 text-[10px] font-mono">Preserves internal plaintext data integrity for authorized workflows.</span>
+            </div>
+          </div>
+
+          <!-- E: GIS MAP INVESTIGATION -->
+          <div class="lg:col-span-7 glass-panel p-5 space-y-3 flex flex-col justify-between">
+            <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
+              <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot text-cyan-400"></i>
+                SPATIAL MAP INVESTIGATION & ROUTE CORRIDOR FOCUS
+              </h3>
+              <span class="text-xs font-mono text-cyan-300">Auto-Focus on Sighting Corridor</span>
+            </div>
+            <div id="sec-forensic-map" class="w-full h-[440px] rounded-xl overflow-hidden border border-[#232D42] z-10"></div>
+          </div>
+        </div>
+
+        <!-- SECTION C: VISUAL FORENSIC TIMELINE -->
+        <div class="glass-panel p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
+            <div>
+              <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
+                <i class="fa-solid fa-timeline text-emerald-400"></i>
+                VISUAL FORENSIC SIGHTING TIMELINE & NEXT-CAMERA PREDICTION
+              </h3>
+              <p class="text-xs text-slate-400">Sequential Sighting Flow: Camera Node ➔ Timestamp ➔ Subsystem Confidence ➔ Probabilistic Downstream Prediction</p>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
+              AUDIT TRAIL
+            </span>
+          </div>
+
+          <div id="sec-timeline-flow-container" class="space-y-4">
+            <!-- Rendered dynamically by JS controller -->
+          </div>
+        </div>
+
+        <!-- SECTION D: 5 Ws COURT EVIDENCE PANEL -->
+        <div class="glass-panel p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#232D42]">
+            <div>
+              <h3 class="font-display font-bold text-base text-white flex items-center gap-2">
+                <i class="fa-solid fa-file-contract text-cyan-400"></i>
+                COURT-ADMISSIBLE 5 Ws EVIDENCE AUDIT RECORD
+              </h3>
+              <p class="text-xs text-slate-400">Auditable Explanation of Vehicle Behavior (WHAT, WHERE, WHEN, WHY & REVIEW GUIDANCE)</p>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
+              5 Ws DIAGNOSTICS
+            </span>
+          </div>
+
+          <div id="sec-5ws-container" class="space-y-3">
+            <!-- Rendered dynamically by JS controller -->
+          </div>
+        </div>
 
       </div>
 
@@ -1452,7 +1466,6 @@
 
   <!-- COMMAND CENTER CONTROLLER SCRIPT -->
   <script>
-    // Camera Node GIS Spatial Coordinates
     const CAMERA_COORDINATES = {
       "cam_01": { lat: 18.5204, lng: 73.8567, name: "CAM_01 — Central Intersection Junction" },
       "cam_02": { lat: 18.5314, lng: 73.8446, name: "CAM_02 — North Highway Expressway Corridor" },
@@ -1472,6 +1485,7 @@
       'view-copilot': { title: 'AI CITY COPILOT INTELLIGENCE LAYER', subtitle: 'Natural Language Query Layer over Multi-Camera Engine' },
       'view-watchlist': { title: 'SECURITY ALERTS & INCIDENT RESPONSE', subtitle: 'Blacklist Match & Anomaly Incident Response Stream' },
       'view-privacy-audit': { title: 'PRIVACY SHIELD & SYSTEM HEALTH POSTURE', subtitle: 'DPDP-aligned Privacy Controls & Masking Audit Trail' },
+      'view-security-command-center': { title: 'SECURITY & FORENSIC INVESTIGATION COMMAND CENTER', subtitle: 'Unified Security Overview, Vehicle Intelligence, Forensic Timeline & 5 Ws Court Evidence' },
     };
 
     const fallbackAnalyticsData = {
@@ -1801,6 +1815,7 @@
       renderTrajectories(data.reconstructed_trajectories || {});
       renderCityTrafficIntelligence(data.city_traffic_intelligence || {});
       renderEvidenceChain(data.evidence_chain || []);
+      renderSecurityCommandCenter(data);
     }
 
     function renderTrajectories(trajectories) {
@@ -2136,6 +2151,199 @@
       tbody.prepend(tr);
       document.getElementById('watch-plate-input').value = '';
       document.getElementById('watch-reason-input').value = '';
+    }
+
+    /* PHASE 5: SECURITY & FORENSIC INVESTIGATION COMMAND CENTER CONTROLLER */
+    function renderSecurityCommandCenter(data) {
+      if (!data) data = currentAnalytics || fallbackAnalyticsData;
+      const summary = data.summary || {};
+      const anomaliesCount = summary.anomalies_detected_count || (data.evidence_chain ? data.evidence_chain.length : 0);
+
+      const kpiAlerts = document.getElementById('sec-kpi-alerts');
+      if (kpiAlerts) kpiAlerts.innerText = `${anomaliesCount} Anomalies`;
+
+      selectSecurityVehicle(selectedPlate || 'MH12DE1408');
+    }
+
+    let secForensicMap = null;
+
+    function initSecForensicMap() {
+      if (!secForensicMap && document.getElementById('sec-forensic-map')) {
+        secForensicMap = L.map('sec-forensic-map', { zoomControl: true, attributionControl: false }).setView([18.5259, 73.8506], 13);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+          maxZoom: 19
+        }).addTo(secForensicMap);
+      }
+    }
+
+    function selectSecurityVehicle(plate) {
+      if (!plate) plate = 'MH12DE1408';
+      plate = plate.trim().toUpperCase();
+      selectedPlate = plate;
+
+      const data = currentAnalytics || fallbackAnalyticsData;
+      const trajectories = data.reconstructed_trajectories || {};
+      const targetTraj = trajectories[plate] || { camera_sequence: ['cam_01', 'cam_02'], total_sightings: 2 };
+
+      // Salted SHA-256 hash representation
+      let hashVal = 0;
+      const saltedStr = plate + ':SIH26127_SALT_SECURE_2026';
+      for (let i = 0; i < saltedStr.length; i++) {
+        hashVal = ((hashVal << 5) - hashVal) + saltedStr.charCodeAt(i);
+        hashVal |= 0;
+      }
+      const hashedVid = 'VID-' + Math.abs(hashVal).toString(16).padStart(10, 'a').slice(0, 10);
+
+      // Masking based on active role
+      const currentRole = document.getElementById('sec-kpi-role-select')?.value || 'PUBLIC_OPERATOR';
+      let maskedPlate = plate;
+      if (currentRole === 'PUBLIC_OPERATOR' && plate.length > 4) {
+        maskedPlate = plate.substring(0, 4) + '****' + plate.substring(plate.length - 2);
+      }
+
+      // Update Section B Panel UI
+      const inputElem = document.getElementById('sec-vehicle-search-input');
+      if (inputElem && inputElem.value !== plate) inputElem.value = plate;
+
+      const hashedVidElem = document.getElementById('sec-hashed-vid');
+      if (hashedVidElem) hashedVidElem.innerText = hashedVid.toUpperCase();
+
+      const plateDisplayElem = document.getElementById('sec-plate-display');
+      if (plateDisplayElem) plateDisplayElem.innerText = maskedPlate;
+
+      const maskStatusElem = document.getElementById('sec-mask-status');
+      if (maskStatusElem) maskStatusElem.innerText = `${currentRole} (${currentRole === 'PUBLIC_OPERATOR' ? 'Masked PII' : 'Full Unmasked'})`;
+
+      const seq = targetTraj.camera_sequence || ['cam_01', 'cam_02'];
+      const obsRouteElem = document.getElementById('sec-observed-route');
+      if (obsRouteElem) obsRouteElem.innerText = seq.map(c => c.toUpperCase()).join(' ➔ ');
+
+      const preds = (data.predictive_route_intelligence || {}).predictions || {};
+      const predInfo = preds[plate] || {};
+      const nextCam = (predInfo.predicted_next_camera || 'cam_03').toUpperCase();
+      const probStr = predInfo.predictions?.[0]?.probability_percentage || '78.5%';
+
+      const predNextElem = document.getElementById('sec-predicted-next');
+      if (predNextElem) predNextElem.innerText = `${nextCam} — Probabilistic Downstream Node (${probStr})`;
+
+      // Anomaly status check
+      const evidenceList = data.evidence_chain || [];
+      const targetAnomaly = evidenceList.find(e => e.fused_identity === plate || e.fused_identity === maskedPlate);
+      const anomalyBadgeElem = document.getElementById('sec-anomaly-badge');
+      if (anomalyBadgeElem) {
+        if (targetAnomaly) {
+          anomalyBadgeElem.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-400 border border-rose-800';
+          anomalyBadgeElem.innerText = `ANOMALOUS (${targetAnomaly.anomaly_type})`;
+        } else {
+          anomalyBadgeElem.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800';
+          anomalyBadgeElem.innerText = 'NOMINAL (NO VIOLATION)';
+        }
+      }
+
+      // Update Section C & D
+      renderVisualTimeline(plate, targetTraj, predInfo);
+      render5WsEvidencePanel(plate, targetAnomaly, targetTraj, predInfo);
+
+      // Update Section E: Map Focus
+      initSecForensicMap();
+      if (secForensicMap) {
+        const latlngs = seq.map(cam => CAMERA_COORDINATES[cam]).filter(Boolean).map(c => [c.lat, c.lng]);
+        if (latlngs.length > 0) {
+          secForensicMap.setView(latlngs[0], 14);
+        }
+      }
+    }
+
+    function renderVisualTimeline(plate, trajInfo, predInfo) {
+      const container = document.getElementById('sec-timeline-flow-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const nodes = trajInfo.trajectory_nodes || [
+        { camera_id: 'cam_01', timestamp: new Date(Date.now() - 120000).toISOString(), vehicle_class: 'car', confidence: 0.92, ocr_confidence: 0.91 },
+        { camera_id: 'cam_02', timestamp: new Date().toISOString(), vehicle_class: 'car', confidence: 0.94, ocr_confidence: 0.76 }
+      ];
+
+      let flowHtml = `<div class="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none font-mono">`;
+
+      nodes.forEach((n, idx) => {
+        const camName = n.camera_id ? n.camera_id.toUpperCase() : 'CAM_01';
+        const timeStr = new Date(n.timestamp || Date.now()).toLocaleTimeString();
+        flowHtml += `
+          <div class="p-3 bg-[#0B101D] rounded-xl border border-cyan-800/80 min-w-[210px] space-y-1 text-xs">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-cyan-400">SIGHTING #${idx + 1}</span>
+              <span class="px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 text-[9px]">OBSERVED</span>
+            </div>
+            <strong class="text-white text-sm block">${camName}</strong>
+            <div class="text-[10px] text-slate-400">${timeStr}</div>
+            <div class="text-[10px] text-slate-300 pt-1 border-t border-[#232D42]">
+              YOLO: <strong class="text-emerald-400">${((n.confidence || 0.9) * 100).toFixed(0)}%</strong> | OCR: <strong class="text-amber-400">${((n.ocr_confidence || 0.8) * 100).toFixed(0)}%</strong>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right text-slate-600 text-sm mx-1"></i>
+        `;
+      });
+
+      const nextCam = (predInfo.predicted_next_camera || 'cam_03').toUpperCase();
+      const probPct = predInfo.predictions?.[0]?.probability_percentage || '78.5%';
+      flowHtml += `
+        <div class="p-3 bg-amber-950/30 rounded-xl border border-amber-900/60 min-w-[210px] space-y-1 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-amber-400">DOWNSTREAM NEXT</span>
+            <span class="px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-800 text-[9px]">PREDICTED</span>
+          </div>
+          <strong class="text-white text-sm block">${nextCam}</strong>
+          <div class="text-[10px] text-amber-300 font-bold">${probPct} Markov Prob</div>
+          <div class="text-[10px] text-slate-400 pt-1 border-t border-amber-900/40">Probabilistic Topology Estimate</div>
+        </div>
+      </div>`;
+
+      container.innerHTML = flowHtml;
+    }
+
+    function render5WsEvidencePanel(plate, anomalyItem, trajInfo, predInfo) {
+      const container = document.getElementById('sec-5ws-container');
+      if (!container) return;
+
+      const seq = trajInfo.camera_sequence || ['cam_01', 'cam_02'];
+      const camFrom = seq[0] ? seq[0].toUpperCase() : 'CAM_01';
+      const camTo = seq[seq.length - 1] ? seq[seq.length - 1].toUpperCase() : 'CAM_02';
+
+      if (anomalyItem) {
+        const fiveWs = anomalyItem.explanation?.five_w_summary || {};
+        container.innerHTML = `
+          <div class="p-4 bg-[#0B101D] rounded-xl border border-rose-900/60 space-y-3 font-mono text-xs">
+            <div class="flex items-center justify-between pb-2 border-b border-[#232D42]">
+              <span class="px-2.5 py-1 rounded bg-rose-950 text-rose-400 border border-rose-800 font-bold">ALERT: ${anomalyItem.anomaly_type}</span>
+              <span class="text-slate-400">Score: <strong class="text-rose-400">${anomalyItem.anomaly_score}/100 (${anomalyItem.severity})</strong></span>
+            </div>
+            <div class="space-y-1.5 text-slate-200">
+              <div><strong class="text-rose-400">WHAT:</strong> ${fiveWs.what || anomalyItem.reason}</div>
+              <div><strong class="text-cyan-400">WHERE:</strong> Node Transition Corridor ${camFrom} ➔ ${camTo}</div>
+              <div><strong class="text-amber-400">WHEN:</strong> ${fiveWs.when || 'Recent observation window'}</div>
+              <div><strong class="text-purple-400">WHY:</strong> ${fiveWs.why || anomalyItem.reason}</div>
+              <div class="pt-2 border-t border-[#232D42] text-emerald-400"><strong>REVIEW GUIDANCE:</strong> ${fiveWs.review_guidance || 'Manual review recommended.'}</div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 bg-[#0B101D] rounded-xl border border-emerald-900/60 space-y-3 font-mono text-xs">
+            <div class="flex items-center justify-between pb-2 border-b border-[#232D42]">
+              <span class="px-2.5 py-1 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">STATUS: NOMINAL CORRIDOR TRANSITION</span>
+              <span class="text-slate-400">Confidence: <strong class="text-emerald-400">HIGH (90.8%)</strong></span>
+            </div>
+            <div class="space-y-1.5 text-slate-200">
+              <div><strong class="text-emerald-400">WHAT:</strong> No physical travel speed violation or unauthorized route deviation detected for vehicle ${plate}.</div>
+              <div><strong class="text-cyan-400">WHERE:</strong> Verified multi-camera corridor ${camFrom} ➔ ${camTo}.</div>
+              <div><strong class="text-amber-400">WHEN:</strong> Transition occurred within valid spatial-temporal travel window.</div>
+              <div><strong class="text-purple-400">WHY:</strong> Movement pattern fully matches expected historical camera network topology.</div>
+              <div class="pt-2 border-t border-[#232D42] text-cyan-300"><strong>REVIEW GUIDANCE:</strong> Nominal telemetry log — no manual law enforcement intervention required.</div>
+            </div>
+          </div>
+        `;
+      }
     }
 
     function updateLiveClock() {

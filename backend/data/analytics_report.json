@@ -1,0 +1,587 @@
+{
+  "timestamp": "2026-09-15T17:45:39.307079",
+  "summary": {
+    "total_events": 6,
+    "unique_vehicles_tracked": 5,
+    "active_camera_nodes": 2,
+    "city_congestion_index": "LOW",
+    "fused_identities_count": 2,
+    "anomalies_detected_count": 0,
+    "predicted_vehicles_count": 5,
+    "evidence_chain_records_count": 0,
+    "active_corridors_count": 1,
+    "city_traffic_state": "FREE_FLOW",
+    "average_city_congestion_score": 14
+  },
+  "camera_analytics": {
+    "cam_01": {
+      "traffic_volume": 3,
+      "unique_vehicles": 3,
+      "congestion_level": "LOW",
+      "vehicle_classes": {
+        "car": 1,
+        "truck": 1,
+        "bus": 1
+      }
+    },
+    "cam_02": {
+      "traffic_volume": 3,
+      "unique_vehicles": 3,
+      "congestion_level": "LOW",
+      "vehicle_classes": {
+        "car": 2,
+        "bus": 1
+      }
+    }
+  },
+  "vehicle_classification": {
+    "counts": {
+      "car": 3,
+      "motorcycle": 0,
+      "bus": 2,
+      "truck": 1
+    },
+    "percentages": {
+      "car": 50.0,
+      "motorcycle": 0.0,
+      "bus": 33.3,
+      "truck": 16.7
+    }
+  },
+  "fused_identities": [
+    {
+      "fused_plate_number": "MH12DE1408",
+      "fused_identity_confidence": 0.908,
+      "confidence_category": "HIGH CONFIDENCE",
+      "is_valid_match": true,
+      "evidence": {
+        "source_camera": "cam_01",
+        "destination_camera": "cam_02",
+        "timestamps": {
+          "source": "2026-09-15T17:40:28.418455",
+          "destination": "2026-09-15T17:42:28.418455",
+          "time_diff_seconds": 120.0
+        },
+        "original_ocr_values": {
+          "source": "MH12DE1408",
+          "destination": "MH12DE14O8"
+        },
+        "normalized_values": {
+          "source": "MH12DE1408",
+          "destination": "MH12DE14O8"
+        },
+        "ocr_confidence": {
+          "source": 0.91,
+          "destination": 0.76
+        },
+        "similarity_score": 0.98,
+        "temporal_score": 1.0,
+        "transition_reason": "Physically plausible transition",
+        "evidence_summary": "plate similarity + temporal consistency + valid camera transition"
+      }
+    },
+    {
+      "fused_plate_number": "TN09CC5544",
+      "fused_identity_confidence": 0.962,
+      "confidence_category": "HIGH CONFIDENCE",
+      "is_valid_match": true,
+      "evidence": {
+        "source_camera": "cam_01",
+        "destination_camera": "cam_02",
+        "timestamps": {
+          "source": "2026-09-15T17:44:28.418455",
+          "destination": "2026-09-15T17:45:28.418455",
+          "time_diff_seconds": 60.0
+        },
+        "original_ocr_values": {
+          "source": "TN09CC5544",
+          "destination": "TN09CC5544"
+        },
+        "normalized_values": {
+          "source": "TN09CC5544",
+          "destination": "TN09CC5544"
+        },
+        "ocr_confidence": {
+          "source": 0.89,
+          "destination": 0.93
+        },
+        "similarity_score": 1.0,
+        "temporal_score": 1.0,
+        "transition_reason": "Physically plausible transition",
+        "evidence_summary": "plate similarity + temporal consistency + valid camera transition"
+      }
+    }
+  ],
+  "anomaly_radar": {
+    "scan_timestamp": "2026-09-15T17:45:39.304497",
+    "topology_source": "DEMO/SIMULATED camera topology",
+    "total_trajectories_scanned": 5,
+    "anomalies_detected": 0,
+    "severity_breakdown": {
+      "LOW": 0,
+      "MEDIUM": 0,
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    "anomaly_type_breakdown": {
+      "UNEXPECTED_ROUTE": 0,
+      "IMPOSSIBLE_TRANSITION": 0,
+      "TEMPORAL_ANOMALY": 0,
+      "IDENTITY_CONFLICT": 0
+    },
+    "anomaly_records": []
+  },
+  "predictive_route_intelligence": {
+    "prediction_timestamp": "2026-09-15T17:45:39.305475",
+    "topology_source": "DEMO/SIMULATED camera topology",
+    "total_vehicles_predicted": 5,
+    "historical_transition_frequencies": {
+      "cam_01": {
+        "cam_02": 1
+      }
+    },
+    "predictions": {
+      "MH12DE1408": {
+        "vehicle_id": "MH12DE1408",
+        "current_camera": "cam_01",
+        "predicted_next_camera": "cam_02",
+        "predictions": [
+          {
+            "camera_id": "cam_02",
+            "probability": 0.81,
+            "probability_percentage": "81%",
+            "reason": "Frequent historical transition (1 sightings) from cam_01"
+          },
+          {
+            "camera_id": "cam_03",
+            "probability": 0.19,
+            "probability_percentage": "19%",
+            "reason": "Configured topology adjacency corridor from cam_01"
+          }
+        ],
+        "prediction_confidence": 0.69,
+        "status": "PREDICTED",
+        "explanation": "cam_01 -> cam_02 is the most compatible transition (81%)."
+      },
+      "KA01AB2026": {
+        "vehicle_id": "KA01AB2026",
+        "current_camera": "cam_01",
+        "predicted_next_camera": "cam_02",
+        "predictions": [
+          {
+            "camera_id": "cam_02",
+            "probability": 0.81,
+            "probability_percentage": "81%",
+            "reason": "Frequent historical transition (1 sightings) from cam_01"
+          },
+          {
+            "camera_id": "cam_03",
+            "probability": 0.19,
+            "probability_percentage": "19%",
+            "reason": "Configured topology adjacency corridor from cam_01"
+          }
+        ],
+        "prediction_confidence": 0.69,
+        "status": "PREDICTED",
+        "explanation": "cam_01 -> cam_02 is the most compatible transition (81%)."
+      },
+      "MH12DE14O8": {
+        "vehicle_id": "MH12DE14O8",
+        "current_camera": "cam_02",
+        "predicted_next_camera": "cam_01",
+        "predictions": [
+          {
+            "camera_id": "cam_01",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          },
+          {
+            "camera_id": "cam_04",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          }
+        ],
+        "prediction_confidence": 0.42,
+        "status": "PREDICTED",
+        "explanation": "cam_02 -> cam_01 is the most compatible transition (50%)."
+      },
+      "DL03XY9988": {
+        "vehicle_id": "DL03XY9988",
+        "current_camera": "cam_02",
+        "predicted_next_camera": "cam_01",
+        "predictions": [
+          {
+            "camera_id": "cam_01",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          },
+          {
+            "camera_id": "cam_04",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          }
+        ],
+        "prediction_confidence": 0.42,
+        "status": "PREDICTED",
+        "explanation": "cam_02 -> cam_01 is the most compatible transition (50%)."
+      },
+      "TN09CC5544": {
+        "vehicle_id": "TN09CC5544",
+        "current_camera": "cam_02",
+        "predicted_next_camera": "cam_01",
+        "predictions": [
+          {
+            "camera_id": "cam_01",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          },
+          {
+            "camera_id": "cam_04",
+            "probability": 0.5,
+            "probability_percentage": "50%",
+            "reason": "Configured topology adjacency corridor from cam_02"
+          }
+        ],
+        "prediction_confidence": 0.5,
+        "status": "PREDICTED",
+        "explanation": "cam_02 -> cam_01 is the most compatible transition (50%)."
+      }
+    }
+  },
+  "evidence_chain": [],
+  "city_traffic_intelligence": {
+    "summary": {
+      "total_observations": 6,
+      "unique_vehicles": 5,
+      "active_cameras": 4,
+      "total_inter_camera_transitions": 1,
+      "unique_active_corridors": 1
+    },
+    "od_matrix": {
+      "camera_nodes": [
+        "cam_01",
+        "cam_02",
+        "cam_03",
+        "cam_04"
+      ],
+      "matrix": {
+        "cam_01": {
+          "cam_01": 0,
+          "cam_02": 1,
+          "cam_03": 0,
+          "cam_04": 0
+        },
+        "cam_02": {
+          "cam_01": 0,
+          "cam_02": 0,
+          "cam_03": 0,
+          "cam_04": 0
+        },
+        "cam_03": {
+          "cam_01": 0,
+          "cam_02": 0,
+          "cam_03": 0,
+          "cam_04": 0
+        },
+        "cam_04": {
+          "cam_01": 0,
+          "cam_02": 0,
+          "cam_03": 0,
+          "cam_04": 0
+        }
+      },
+      "total_transitions": 1
+    },
+    "top_corridors": [
+      {
+        "origin": "cam_01",
+        "destination": "cam_02",
+        "corridor_id": "cam_01 -> cam_02",
+        "vehicle_count": 1,
+        "percentage_of_total_flow": 100.0,
+        "rank": 1
+      }
+    ],
+    "camera_flow_summary": {
+      "cam_01": {
+        "camera_id": "cam_01",
+        "incoming_flow": 0,
+        "outgoing_flow": 1,
+        "total_volume": 3,
+        "unique_vehicles": 3,
+        "congestion_level": "LOW"
+      },
+      "cam_02": {
+        "camera_id": "cam_02",
+        "incoming_flow": 1,
+        "outgoing_flow": 0,
+        "total_volume": 3,
+        "unique_vehicles": 3,
+        "congestion_level": "LOW"
+      },
+      "cam_03": {
+        "camera_id": "cam_03",
+        "incoming_flow": 0,
+        "outgoing_flow": 0,
+        "total_volume": 0,
+        "unique_vehicles": 0,
+        "congestion_level": "LOW"
+      },
+      "cam_04": {
+        "camera_id": "cam_04",
+        "incoming_flow": 0,
+        "outgoing_flow": 0,
+        "total_volume": 0,
+        "unique_vehicles": 0,
+        "congestion_level": "LOW"
+      }
+    },
+    "traffic_insights": [
+      {
+        "type": "HIGHEST_FLOW_CORRIDOR",
+        "title": "Busiest Corridor: cam_01 -> cam_02",
+        "description": "Corridor cam_01 -> cam_02 registered the highest vehicle flow with 1 transitions (100.0% of city-wide inter-camera traffic).",
+        "metric_key": "vehicle_count",
+        "metric_value": 1,
+        "origin": "cam_01",
+        "destination": "cam_02"
+      },
+      {
+        "type": "HIGHEST_ORIGIN",
+        "title": "Primary Traffic Origin: cam_01",
+        "description": "Camera node 'cam_01' generated the highest outbound vehicle flow with 1 departing transitions.",
+        "metric_key": "outgoing_flow",
+        "metric_value": 1,
+        "camera_id": "cam_01"
+      },
+      {
+        "type": "HIGHEST_DESTINATION",
+        "title": "Primary Traffic Destination: cam_02",
+        "description": "Camera node 'cam_02' received the highest inbound vehicle flow with 1 arriving transitions.",
+        "metric_key": "incoming_flow",
+        "metric_value": 1,
+        "camera_id": "cam_02"
+      },
+      {
+        "type": "LOW_FLOW_CAMERA",
+        "title": "Low Volume Node: cam_03",
+        "description": "Camera node 'cam_03' recorded minimum activity with 0 total vehicle detection events.",
+        "metric_key": "total_volume",
+        "metric_value": 0,
+        "camera_id": "cam_03"
+      }
+    ]
+  },
+  "city_digital_twin": {
+    "summary": {
+      "city_traffic_state": "FREE_FLOW",
+      "average_city_congestion_score": 14,
+      "total_monitored_nodes": 4,
+      "state_breakdown": {
+        "FREE_FLOW": 4,
+        "MODERATE": 0,
+        "CONGESTED": 0,
+        "SEVERE": 0
+      },
+      "data_source_label": "DEMO/SIMULATED Multi-Camera ANPR Analytics Pipeline"
+    },
+    "camera_nodes_intelligence": {
+      "cam_01": {
+        "camera_id": "cam_01",
+        "traffic_state": "FREE_FLOW",
+        "congestion_score": 20,
+        "detection_volume": 3,
+        "unique_vehicle_count": 3,
+        "congestion_level_category": "LOW",
+        "incoming_flow": 0,
+        "outgoing_flow": 1,
+        "net_flow_balance": -1,
+        "status_indicator": "EMERALD (Normal Flow)"
+      },
+      "cam_02": {
+        "camera_id": "cam_02",
+        "traffic_state": "FREE_FLOW",
+        "congestion_score": 20,
+        "detection_volume": 3,
+        "unique_vehicle_count": 3,
+        "congestion_level_category": "LOW",
+        "incoming_flow": 1,
+        "outgoing_flow": 0,
+        "net_flow_balance": 1,
+        "status_indicator": "EMERALD (Normal Flow)"
+      },
+      "cam_03": {
+        "camera_id": "cam_03",
+        "traffic_state": "FREE_FLOW",
+        "congestion_score": 8,
+        "detection_volume": 0,
+        "unique_vehicle_count": 0,
+        "congestion_level_category": "LOW",
+        "incoming_flow": 0,
+        "outgoing_flow": 0,
+        "net_flow_balance": 0,
+        "status_indicator": "EMERALD (Normal Flow)"
+      },
+      "cam_04": {
+        "camera_id": "cam_04",
+        "traffic_state": "FREE_FLOW",
+        "congestion_score": 8,
+        "detection_volume": 0,
+        "unique_vehicle_count": 0,
+        "congestion_level_category": "LOW",
+        "incoming_flow": 0,
+        "outgoing_flow": 0,
+        "net_flow_balance": 0,
+        "status_indicator": "EMERALD (Normal Flow)"
+      }
+    },
+    "scoring_formula_documentation": {
+      "formula": "Congestion Score C = round(0.6 * S_vol + 0.4 * S_level)",
+      "volume_component": "S_vol = min(100, (traffic_volume / 15) * 100)",
+      "level_component": "S_level: LOW=20, MODERATE=60, HIGH=90",
+      "state_thresholds": "FREE_FLOW (<30), MODERATE (30-59), CONGESTED (60-84), SEVERE (>=85)"
+    }
+  },
+  "reconstructed_trajectories": {
+    "MH12DE1408": {
+      "camera_sequence": [
+        "cam_01"
+      ],
+      "total_sightings": 1,
+      "first_seen": "2026-09-15T17:40:28.418455",
+      "last_seen": "2026-09-15T17:40:28.418455",
+      "trajectory_nodes": [
+        {
+          "camera_id": "cam_01",
+          "timestamp": "2026-09-15T17:40:28.418455",
+          "vehicle_class": "car",
+          "confidence": 0.92,
+          "ocr_confidence": 0.91,
+          "confidence_category": "HIGH CONFIDENCE",
+          "bbox": [
+            100,
+            200,
+            240,
+            265
+          ]
+        }
+      ]
+    },
+    "KA01AB2026": {
+      "camera_sequence": [
+        "cam_01"
+      ],
+      "total_sightings": 1,
+      "first_seen": "2026-09-15T17:41:28.418455",
+      "last_seen": "2026-09-15T17:41:28.418455",
+      "trajectory_nodes": [
+        {
+          "camera_id": "cam_01",
+          "timestamp": "2026-09-15T17:41:28.418455",
+          "vehicle_class": "truck",
+          "confidence": 0.88,
+          "ocr_confidence": 0.88,
+          "confidence_category": "HIGH CONFIDENCE",
+          "bbox": [
+            150,
+            300,
+            330,
+            385
+          ]
+        }
+      ]
+    },
+    "MH12DE14O8": {
+      "camera_sequence": [
+        "cam_02"
+      ],
+      "total_sightings": 1,
+      "first_seen": "2026-09-15T17:42:28.418455",
+      "last_seen": "2026-09-15T17:42:28.418455",
+      "trajectory_nodes": [
+        {
+          "camera_id": "cam_02",
+          "timestamp": "2026-09-15T17:42:28.418455",
+          "vehicle_class": "car",
+          "confidence": 0.94,
+          "ocr_confidence": 0.76,
+          "confidence_category": "MEDIUM CONFIDENCE",
+          "bbox": [
+            120,
+            210,
+            260,
+            275
+          ]
+        }
+      ]
+    },
+    "DL03XY9988": {
+      "camera_sequence": [
+        "cam_02"
+      ],
+      "total_sightings": 1,
+      "first_seen": "2026-09-15T17:43:28.418455",
+      "last_seen": "2026-09-15T17:43:28.418455",
+      "trajectory_nodes": [
+        {
+          "camera_id": "cam_02",
+          "timestamp": "2026-09-15T17:43:28.418455",
+          "vehicle_class": "car",
+          "confidence": 0.91,
+          "ocr_confidence": 0.91,
+          "confidence_category": "HIGH CONFIDENCE",
+          "bbox": [
+            400,
+            410,
+            530,
+            470
+          ]
+        }
+      ]
+    },
+    "TN09CC5544": {
+      "camera_sequence": [
+        "cam_01",
+        "cam_02"
+      ],
+      "total_sightings": 2,
+      "first_seen": "2026-09-15T17:44:28.418455",
+      "last_seen": "2026-09-15T17:45:28.418455",
+      "trajectory_nodes": [
+        {
+          "camera_id": "cam_01",
+          "timestamp": "2026-09-15T17:44:28.418455",
+          "vehicle_class": "bus",
+          "confidence": 0.89,
+          "ocr_confidence": 0.89,
+          "confidence_category": "HIGH CONFIDENCE",
+          "bbox": [
+            200,
+            130,
+            400,
+            220
+          ]
+        },
+        {
+          "camera_id": "cam_02",
+          "timestamp": "2026-09-15T17:45:28.418455",
+          "vehicle_class": "bus",
+          "confidence": 0.93,
+          "ocr_confidence": 0.93,
+          "confidence_category": "HIGH CONFIDENCE",
+          "bbox": [
+            220,
+            140,
+            420,
+            230
+          ]
+        }
+      ]
+    }
+  }
+}
