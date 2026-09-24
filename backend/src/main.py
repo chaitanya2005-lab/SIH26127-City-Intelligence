@@ -10,6 +10,8 @@ import os
 import json
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from datetime import datetime
 from typing import List, Dict, Any, Optional
@@ -18,6 +20,17 @@ from typing import List, Dict, Any, Optional
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from analytics import TrafficAnalyticsEngine, get_mock_multi_camera_data
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+def get_data_path():
+    p1 = os.path.join(BASE_DIR, "backend", "data", "analytics_report.json")
+    if os.path.exists(p1):
+        return p1
+    p2 = "backend/data/analytics_report.json"
+    if os.path.exists(p2):
+        return p2
+    return p1
 
 app = FastAPI(
     title="City-Wide ANPR & Traffic Analytics Engine API",
@@ -39,6 +52,9 @@ analytics_engine = TrafficAnalyticsEngine()
 
 @app.get("/")
 def read_root():
+    dash_path = os.path.join(BASE_DIR, "dashboard.html")
+    if os.path.exists(dash_path):
+        return FileResponse(dash_path)
     return {
         "status": "online",
         "system": "City-Wide ANPR Engine (SIH26127)",
@@ -388,3 +404,21 @@ def get_forensic_command_center_summary():
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Forensic Command Center error: {str(e)}")
+
+
+# Static Asset Mounting for Single-URL Cloud Deployment
+public_dir = os.path.join(BASE_DIR, "public")
+if os.path.exists(public_dir):
+    app.mount("/public", StaticFiles(directory=public_dir), name="public")
+
+backend_data_dir = os.path.join(BASE_DIR, "backend", "data")
+if os.path.exists(backend_data_dir):
+    app.mount("/backend/data", StaticFiles(directory=backend_data_dir), name="backend_data")
+
+@app.get("/{filename:path}")
+def serve_static_asset(filename: str):
+    target_path = os.path.normpath(os.path.join(BASE_DIR, filename))
+    if target_path.startswith(BASE_DIR) and os.path.exists(target_path) and os.path.isfile(target_path):
+        return FileResponse(target_path)
+    raise HTTPException(status_code=404, detail=f"Asset '{filename}' not found.")
+
